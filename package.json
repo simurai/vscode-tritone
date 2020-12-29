@@ -1,0 +1,50 @@
+{
+	"name": "tritone",
+	"displayName": "TriTone themes",
+	"description": "TriTone themes for VS Code",
+	"version": "0.0.0",
+	"preview": true,
+	"publisher": "simurai",
+	"license": "MIT",
+	"icon": "icon.png",
+	"galleryBanner": {
+		"color": "#000000",
+		"theme": "dark"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/simurai/vscode-tritone"
+	},
+	"bugs": {
+		"url": "https://github.com/simurai/vscode-tritone/issues"
+	},
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"theme",
+		"tritone",
+		"light",
+		"dark"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "TriTone Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dark.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"chroma-js": "^2.1.0",
+		"nodemon": "^2.0.3"
+	},
+	"scripts": {
+		"start": "nodemon --watch src src/index.js",
+		"build": "node src/index.js"
+	}
+}

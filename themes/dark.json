@@ -1,0 +1,50 @@
+{
+  "name": "TriTone Dark",
+  "colors": {
+    "foreground": "#e5e5e6",
+    "descriptionForeground": "#cdcdcf",
+    "titleBar.activeForeground": "#e5e5e6",
+    "titleBar.activeBackground": "#232337",
+    "titleBar.border": "#1d1d2b",
+    "activityBar.foreground": "#e5e5e6",
+    "activityBar.background": "#29293d",
+    "activityBar.border": "#1d1d2b",
+    "sideBar.foreground": "#cdcdcf",
+    "sideBar.background": "#232337",
+    "sideBar.border": "#1d1d2b",
+    "statusBar.foreground": "#cdcdcf",
+    "statusBar.background": "#29293d",
+    "statusBar.border": "#1d1d2b",
+    "editor.foreground": "#e5e5e6",
+    "editor.background": "#29293d",
+    "panel.background": "#232337",
+    "panel.border": "#1d1d2b"
+  },
+  "semanticHighlighting": true,
+  "tokenColors": [
+    {
+      "scope": "comment",
+      "settings": {
+        "foreground": "#29293d"
+      }
+    },
+    {
+      "scope": "variable",
+      "settings": {
+        "foreground": "#5cf5c2"
+      }
+    },
+    {
+      "scope": "keyword",
+      "settings": {
+        "foreground": "#80afe5"
+      }
+    },
+    {
+      "scope": "string",
+      "settings": {
+        "foreground": "#8afe8a"
+      }
+    }
+  ]
+}
