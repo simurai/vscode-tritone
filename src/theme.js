@@ -1,28 +1,34 @@
 const chroma = require("chroma-js");
 
+const mode = 'lab';
+
 // 3 accent colors -------------------------------------------------------------
 
-const unoC = 'hsl(212, 66%, 70%)';
-const duoC = 'hsl(160, 88%, 66%)';
-const triC = 'hsl(120, 99%, 77%)';
-const bgC  = 'hsl(240, 20%, 20%)';
+const unoC = 'hsl(212, 88%, 88%)';
+const duoC = 'hsl(360, 88%, 77%)';
+const triC = 'hsl( 40, 99%, 77%)';
 
-// UI -------------------------------------------------------------
+const fgC  = 'hsl(280, 66%, 88%)';
+const bgC  = 'hsl(280, 33%, 20%)';
 
-const bg = chroma(bgC);
-const bgD1 = chroma(bg).darken(0.15);
+// Chroma -------------------------------------------------------------
 
-const fg = chroma.mix('white', bg, 0.2);
-const fgD1 = chroma.mix(fg, bg, 0.2);
-const fgD2 = chroma.mix(fg, bg, 0.4);
+const fg = chroma.scale([ 'white', fgC, 'black' ]).mode(mode).colors(9);
+const bg = chroma.scale([ 'white', bgC, 'black' ]).mode(mode).colors(9);
 
-const bd = chroma.mix(bg, 'black', 0.5);
+const uno = chroma.scale([ unoC, bgC ]).mode(mode).colors(5);
+const duo = chroma.scale([ duoC, bgC ]).mode(mode).colors(5);
+const tri = chroma.scale([ triC, bgC ]).mode(mode).colors(5);
 
-// Syntax -------------------------------------------------------------
+// Colors -------------------------------------------------------------
 
-const uno = chroma.scale([ fg, unoC, bg ]).mode('lch').colors(5);
-const duo = chroma.scale([ duoC, bg ]).mode('lch').colors(3);
-const tri = chroma.scale([ triC, bg ]).mode('lch').colors(3);
+const color = {
+  'fg'   : fg[3],
+  'fgD1' : fg[5],
+  'bg'   : bg[5],
+  'bgD1' : bg[6],
+  'bd'   : bg[8],
+}
 
 // Theme -------------------------------------------------------------
 
@@ -30,43 +36,43 @@ function buildTheme({ name }) {
   return {
     name: name,
     colors: {
-      foreground           : fg.hex(),
-      descriptionForeground: fgD1.hex(),
+      foreground           : color.fg,
+      descriptionForeground: color.fgD1,
 
-      "titleBar.activeForeground"  : fg.hex(),
-      "titleBar.activeBackground"  : bgD1.hex(),
-      "titleBar.border"            : bd.hex(),
+      "titleBar.activeForeground"  : color.fg,
+      "titleBar.activeBackground"  : color.bgD1,
+      "titleBar.border"            : color.bd,
 
-      "activityBar.foreground"        : fg.hex(),
-      "activityBar.background"        : bg.hex(),
-      "activityBar.border"            : bd.hex(),
+      "activityBar.foreground"        : color.fg,
+      "activityBar.background"        : color.bg,
+      "activityBar.border"            : color.bd,
 
-      "sideBar.foreground"             : fgD1.hex(),
-      "sideBar.background"             : bgD1.hex(),
-      "sideBar.border"                 : bd.hex(),
+      "sideBar.foreground"             : color.fgD1,
+      "sideBar.background"             : color.bgD1,
+      "sideBar.border"                 : color.bd,
 
-      "statusBar.foreground"             : fgD1.hex(),
-      "statusBar.background"             : bg.hex(),
-      "statusBar.border"                 : bd.hex(),
+      "statusBar.foreground"             : color.fgD1,
+      "statusBar.background"             : color.bg,
+      "statusBar.border"                 : color.bd,
 
-      "editor.foreground"                 : uno[0],
-      "editor.background"                 : bg.hex(),
+      "editor.foreground"                 : color.fg,
+      "editor.background"                 : color.bg,
 
-      "panel.background"             : bgD1.hex(),
-      "panel.border"                 : bd.hex(),
+      "panel.background"             : color.bgD1,
+      "panel.border"                 : color.bd,
     },
     semanticHighlighting: true,
     tokenColors: [
       {
         scope: "comment",
         settings: {
-          foreground: uno[4],
+          foreground: uno[3],
         },
       },
       {
         scope: "variable",
         settings: {
-          foreground: duo[0],
+          foreground: tri[0],
         },
       },
       {
@@ -78,7 +84,7 @@ function buildTheme({ name }) {
       {
         scope: "string",
         settings: {
-          foreground: tri[0],
+          foreground: duo[0],
         },
       },
     ],

@@ -1,49 +1,49 @@
 {
   "name": "TriTone Dark",
   "colors": {
-    "foreground": "#e5e5e6",
-    "descriptionForeground": "#cdcdcf",
-    "titleBar.activeForeground": "#e5e5e6",
-    "titleBar.activeBackground": "#232337",
-    "titleBar.border": "#1d1d2b",
-    "activityBar.foreground": "#e5e5e6",
-    "activityBar.background": "#29293d",
-    "activityBar.border": "#1d1d2b",
-    "sideBar.foreground": "#cdcdcf",
-    "sideBar.background": "#232337",
-    "sideBar.border": "#1d1d2b",
-    "statusBar.foreground": "#cdcdcf",
-    "statusBar.background": "#29293d",
-    "statusBar.border": "#1d1d2b",
-    "editor.foreground": "#e5e5e6",
-    "editor.background": "#29293d",
-    "panel.background": "#232337",
-    "panel.border": "#1d1d2b"
+    "foreground": "#edd9f8",
+    "descriptionForeground": "#a895b2",
+    "titleBar.activeForeground": "#edd9f8",
+    "titleBar.activeBackground": "#201525",
+    "titleBar.border": "#000000",
+    "activityBar.foreground": "#edd9f8",
+    "activityBar.background": "#2c1c34",
+    "activityBar.border": "#000000",
+    "sideBar.foreground": "#a895b2",
+    "sideBar.background": "#201525",
+    "sideBar.border": "#000000",
+    "statusBar.foreground": "#a895b2",
+    "statusBar.background": "#2c1c34",
+    "statusBar.border": "#000000",
+    "editor.foreground": "#edd9f8",
+    "editor.background": "#2c1c34",
+    "panel.background": "#201525",
+    "panel.border": "#000000"
   },
   "semanticHighlighting": true,
   "tokenColors": [
     {
       "scope": "comment",
       "settings": {
-        "foreground": "#29293d"
+        "foreground": "#5a4d6e"
       }
     },
     {
       "scope": "variable",
       "settings": {
-        "foreground": "#5cf5c2"
+        "foreground": "#fed88a"
       }
     },
     {
       "scope": "keyword",
       "settings": {
-        "foreground": "#80afe5"
+        "foreground": "#7d7b9b"
       }
     },
     {
       "scope": "string",
       "settings": {
-        "foreground": "#8afe8a"
+        "foreground": "#f89191"
       }
     }
   ]
