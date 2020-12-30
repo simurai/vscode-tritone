@@ -10,15 +10,15 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
-      "preLaunchTask": "npm: build"
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
     },
     {
-      "name": "Run Extension (without build)",
+      "name": "Run Extension (with build)",
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "preLaunchTask": "npm: build"
     }
   ]
 }
