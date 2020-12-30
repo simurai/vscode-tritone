@@ -1,23 +1,41 @@
 {
   "name": "TriTone Dark",
   "colors": {
-    "foreground": "#edd9f8",
-    "descriptionForeground": "#a895b2",
-    "titleBar.activeForeground": "#edd9f8",
-    "titleBar.activeBackground": "#201525",
+    "foreground": "#eedaf1",
+    "descriptionForeground": "#ddb5e3",
+    "textLink.foreground": "#5cf55c",
+    "titleBar.activeForeground": "#eedaf1",
+    "titleBar.activeBackground": "#1b131c",
     "titleBar.border": "#000000",
-    "activityBar.foreground": "#edd9f8",
-    "activityBar.background": "#2c1c34",
+    "activityBar.foreground": "#eedaf1",
+    "activityBar.inactiveForeground": "#ca91d4",
+    "activityBar.background": "#2e1f30",
     "activityBar.border": "#000000",
-    "sideBar.foreground": "#a895b2",
-    "sideBar.background": "#201525",
+    "activityBar.activeBorder": "#fee252",
+    "tab.activeForeground": "#ddb5e3",
+    "tab.inactiveForeground": "#ca91d4",
+    "tab.inactiveBackground": "#1b131c",
+    "tab.activeBackground": "#2e1f30",
+    "tab.border": "#000000",
+    "tab.activeBorderTop": "#fee252",
+    "editorGroupHeader.tabsBackground": "#1b131c",
+    "tree.indentGuidesStroke": "#422b47",
+    "list.inactiveSelectionBackground": "#422b47",
+    "list.activeSelectionBackground": "#58375e",
+    "list.hoverBackground": "#422b47",
+    "sideBar.foreground": "#ddb5e3",
+    "sideBar.background": "#1b131c",
     "sideBar.border": "#000000",
-    "statusBar.foreground": "#a895b2",
-    "statusBar.background": "#2c1c34",
+    "sideBarSectionHeader.background": "#1b131c",
+    "sideBarSectionHeader.border": "#000000",
+    "statusBar.foreground": "#ddb5e3",
+    "statusBar.background": "#2e1f30",
     "statusBar.border": "#000000",
-    "editor.foreground": "#edd9f8",
-    "editor.background": "#2c1c34",
-    "panel.background": "#201525",
+    "editor.foreground": "#ffc2ea",
+    "editor.background": "#2e1f30",
+    "editorIndentGuide.background": "#422b47",
+    "editorIndentGuide.activeBackground": "#58375e",
+    "panel.background": "#1b131c",
     "panel.border": "#000000"
   },
   "semanticHighlighting": true,
@@ -25,25 +43,25 @@
     {
       "scope": "comment",
       "settings": {
-        "foreground": "#5a4d6e"
+        "foreground": "#7f577f"
       }
     },
     {
       "scope": "variable",
       "settings": {
-        "foreground": "#fed88a"
+        "foreground": "#fee252"
       }
     },
     {
       "scope": "keyword",
       "settings": {
-        "foreground": "#7d7b9b"
+        "foreground": "#a879a1"
       }
     },
     {
       "scope": "string",
       "settings": {
-        "foreground": "#f89191"
+        "foreground": "#5cf55c"
       }
     }
   ]
