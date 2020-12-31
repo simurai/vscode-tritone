@@ -32,17 +32,17 @@ const fg = chroma.scale([ 'white', fgColor, bgColor ]).padding([0.02 + fgContras
 const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
 const color = {
-  'fgU1' : fg[0],
+  'fg1u' : fg[0],
   'fg'   : fg[1],
-  'fgD1' : fg[2],
-  'fgD2' : fg[3],
+  'fg1d' : fg[2],
+  'fg2d' : fg[3],
 
-  'bgU3' : bg[0],
-  'bgU2' : bg[1],
-  'bgU1' : bg[2],
+  'bg3u' : bg[0],
+  'bg2u' : bg[1],
+  'bg1u' : bg[2],
   'bg'   : bg[3],
-  'bgD1' : bg[4],
-  'bgD2' : bg[5],
+  'bg1d' : bg[4],
+  'bg2d' : bg[5],
 
   'bd'   : bg[bdScale], // 6 or 0
 }
@@ -64,41 +64,41 @@ function buildTheme({ name }) {
     name: name,
     colors: {
       foreground           : color.fg,
-      descriptionForeground: color.fgD1,
+      descriptionForeground: color.fg1d,
 
       "textLink.foreground": duo[0],
 
       "titleBar.activeForeground"  : color.fg,
-      "titleBar.activeBackground"  : color.bgD2,
+      "titleBar.activeBackground"  : color.bg2d,
       "titleBar.border"            : color.bd,
 
       "activityBar.foreground"        : color.fg,
-      "activityBar.inactiveForeground": color.fgD2,
+      "activityBar.inactiveForeground": color.fg2d,
       "activityBar.background"        : color.bg,
       "activityBar.border"            : color.bd,
       "activityBar.activeBorder"      : tri[0],
 
-      "tab.activeForeground": color.fgU1,
-      "tab.inactiveForeground": color.fgD2,
-      "tab.inactiveBackground": color.bgD2,
+      "tab.activeForeground": color.fg1u,
+      "tab.inactiveForeground": color.fg2d,
+      "tab.inactiveBackground": color.bg2d,
       "tab.activeBackground": color.bg,
       "tab.border": color.bd,
       "tab.activeBorderTop": tri[0],
-      "editorGroupHeader.tabsBackground": color.bgD2,
+      "editorGroupHeader.tabsBackground": color.bg2d,
 
       "tree.indentGuidesStroke"         : color.bg,
       "list.inactiveSelectionBackground": color.bg,
-      "list.activeSelectionBackground"  : color.bgU1,
+      "list.activeSelectionBackground"  : color.bg1u,
       "list.hoverBackground"            : color.bg,
 
-      "sideBar.foreground"             : color.fgD2,
-      "sideBar.background"             : color.bgD2,
+      "sideBar.foreground"             : color.fg2d,
+      "sideBar.background"             : color.bg2d,
       "sideBar.border"                 : color.bd,
-      "sideBarSectionHeader.foreground": color.fgD1,
-      "sideBarSectionHeader.background": color.bgD2,
+      "sideBarSectionHeader.foreground": color.fg1d,
+      "sideBarSectionHeader.background": color.bg2d,
       "sideBarSectionHeader.border": color.bd,
 
-      "statusBar.foreground"             : color.fgD1,
+      "statusBar.foreground"             : color.fg1d,
       "statusBar.background"             : color.bg,
       "statusBar.border"                 : color.bd,
 
@@ -106,21 +106,21 @@ function buildTheme({ name }) {
       "editor.background"                 : color.bg,
       "editorLineNumber.foreground"       : uno[4],
       "editorLineNumber.activeForeground" : uno[1],
-      "editorIndentGuide.background":       color.bgU1,
-      "editorIndentGuide.activeBackground": color.bgU2,
+      "editorIndentGuide.background":       color.bg1u,
+      "editorIndentGuide.activeBackground": color.bg2u,
 
-      "panel.background"             : color.bgD2,
+      "panel.background"             : color.bg2d,
       "panel.border"                 : color.bd,
 
-      "dropdown.background"     : color.bgU1,
-      "dropdown.border"         : color.bgU2,
+      "dropdown.background"     : color.bg1u,
+      "dropdown.border"         : color.bg2u,
       "dropdown.foreground"     : color.fg,
-      "dropdown.listBackground" : color.bgD1,
+      "dropdown.listBackground" : color.bg1d,
 
-      "input.background"            : color.bgD1,
-      "input.border"                : color.bgU1,
+      "input.background"            : color.bg1d,
+      "input.border"                : color.bg1u,
       "input.foreground"            : color.fg,
-      "input.placeholderForeground" : color.fgD2,
+      "input.placeholderForeground" : color.fg2d,
     },
     semanticHighlighting: true,
     tokenColors: [
