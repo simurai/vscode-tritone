@@ -1,69 +1,78 @@
 {
   "name": "TriTone Dark",
   "colors": {
-    "foreground": "#c6c9d3",
-    "descriptionForeground": "#9b9eab",
-    "textLink.foreground": "#c47de8",
-    "titleBar.activeForeground": "#c6c9d3",
-    "titleBar.activeBackground": "#202531",
-    "titleBar.border": "#13151a",
-    "activityBar.foreground": "#c6c9d3",
-    "activityBar.inactiveForeground": "#727684",
-    "activityBar.background": "#272d3d",
-    "activityBar.border": "#13151a",
-    "activityBar.activeBorder": "#e87da1",
-    "tab.activeForeground": "#c6c9d3",
-    "tab.inactiveForeground": "#727684",
-    "tab.inactiveBackground": "#202531",
-    "tab.activeBackground": "#272d3d",
-    "tab.border": "#13151a",
-    "tab.activeBorderTop": "#e87da1",
-    "editorGroupHeader.tabsBackground": "#202531",
-    "tree.indentGuidesStroke": "#2d364a",
-    "list.inactiveSelectionBackground": "#2d364a",
-    "list.activeSelectionBackground": "#343f57",
-    "list.hoverBackground": "#2d364a",
-    "sideBar.foreground": "#9b9eab",
-    "sideBar.background": "#202531",
-    "sideBar.border": "#13151a",
-    "sideBarSectionHeader.background": "#202531",
-    "sideBarSectionHeader.border": "#13151a",
-    "statusBar.foreground": "#9b9eab",
-    "statusBar.background": "#272d3d",
-    "statusBar.border": "#13151a",
-    "editor.foreground": "#f3f5fd",
-    "editor.background": "#272d3d",
-    "editorLineNumber.foreground": "#727684",
-    "editorLineNumber.activeForeground": "#c6c9d3",
-    "editorIndentGuide.background": "#2d364a",
-    "editorIndentGuide.activeBackground": "#343f57",
-    "panel.background": "#202531",
-    "panel.border": "#13151a"
+    "foreground": "#cbcdd0",
+    "descriptionForeground": "#9ca0a4",
+    "textLink.foreground": "#6fdff6",
+    "titleBar.activeForeground": "#cbcdd0",
+    "titleBar.activeBackground": "#111a22",
+    "titleBar.border": "#09141c",
+    "activityBar.foreground": "#cbcdd0",
+    "activityBar.inactiveForeground": "#6f757b",
+    "activityBar.background": "#1d262f",
+    "activityBar.border": "#09141c",
+    "activityBar.activeBorder": "#5dfec6",
+    "tab.activeForeground": "#fcfdfd",
+    "tab.inactiveForeground": "#6f757b",
+    "tab.inactiveBackground": "#111a22",
+    "tab.activeBackground": "#1d262f",
+    "tab.border": "#09141c",
+    "tab.activeBorderTop": "#5dfec6",
+    "editorGroupHeader.tabsBackground": "#111a22",
+    "tree.indentGuidesStroke": "#1d262f",
+    "list.inactiveSelectionBackground": "#1d262f",
+    "list.activeSelectionBackground": "#232c36",
+    "list.hoverBackground": "#1d262f",
+    "sideBar.foreground": "#6f757b",
+    "sideBar.background": "#111a22",
+    "sideBar.border": "#09141c",
+    "sideBarSectionHeader.foreground": "#9ca0a4",
+    "sideBarSectionHeader.background": "#111a22",
+    "sideBarSectionHeader.border": "#09141c",
+    "statusBar.foreground": "#9ca0a4",
+    "statusBar.background": "#1d262f",
+    "statusBar.border": "#09141c",
+    "editor.foreground": "#fcfdfd",
+    "editor.background": "#1d262f",
+    "editorLineNumber.foreground": "#4e6172",
+    "editorLineNumber.activeForeground": "#c8d4e0",
+    "editorIndentGuide.background": "#232c36",
+    "editorIndentGuide.activeBackground": "#2a333c",
+    "panel.background": "#111a22",
+    "panel.border": "#09141c",
+    "dropdown.background": "#232c36",
+    "dropdown.border": "#2a333c",
+    "dropdown.foreground": "#cbcdd0",
+    "dropdown.listBackground": "#172029",
+    "input.background": "#172029",
+    "input.border": "#232c36",
+    "input.foreground": "#cbcdd0",
+    "input.placeholderForeground": "#6f757b"
   },
   "semanticHighlighting": true,
   "tokenColors": [
     {
       "scope": "comment",
       "settings": {
-        "foreground": "#868a97"
+        "foreground": "#4e6172"
       }
     },
     {
       "scope": "variable",
       "settings": {
-        "foreground": "#e87da1"
+        "foreground": "#5dfec6"
       }
     },
     {
       "scope": "keyword",
       "settings": {
-        "foreground": "#bbbec9"
+        "foreground": "#94adc4"
       }
     },
     {
       "scope": "string",
       "settings": {
-        "foreground": "#c47de8"
+        "foreground": "#6fdff6"
       }
     }
   ]

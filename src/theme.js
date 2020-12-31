@@ -2,32 +2,23 @@ const chroma = require("chroma-js");
 
 // Theme ----------------------------------------------------------
 
-const mode = 'dark';
-const saturation = 0.6;
-const contrast = 0.6;
-const hue = 220;
-const hueRotate = 60;
+const bgColor      = 'hsl(210, 24%, 15%)'; // Background
+const accent1Color = 'hsl(190, 88%, 70%)'; // Accent 1
+const accent2Color = 'hsl(159, 99%, 68%)'; // Accent 2
+
+const bgContrast = 0.5;
 
 // Config ----------------------------------------------------------
 
 const colorMode = 'lab';
 
-// Colors ----------------------------------------------------------
-
-const hue1 = hue;
-const hue2 = hue1 + hueRotate;
-const hue3 = hue2 + hueRotate;
-
-const unoColor  = chroma.hsl(hue1, 0.7, 0.7); // Syntax 1
-const duoColor  = chroma.hsl(hue2, 0.7, 0.7); // Syntax 2
-const triColor  = chroma.hsl(hue3, 0.7, 0.7); // Syntax 3 + accent color
-
 // UI -------------------------------------------------------------
 
+const bgUColor = chroma(bgColor).brighten(bgContrast);
+const bgDColor = chroma(bgColor).darken(bgContrast);
 
-const scale = chroma.scale([ 'white', unoColor, 'black' ]).padding([0.05, 0.05]).mode(colorMode).colors(6);
-const bg = chroma.scale([  scale[4], scale[5] ]).mode(colorMode).colors(7);
-const fg = chroma.scale([ scale[0], bg[3] ]).mode(colorMode).colors(6);
+const fg = chroma.scale([ 'white', bgColor ]).padding([0.01, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
+const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
 const color = {
   'fgU1' : fg[0],
@@ -47,9 +38,13 @@ const color = {
 
 // Syntax -------------------------------------------------------------
 
-const uno = chroma.scale([ fg[0], bg[3] ]).mode(colorMode).colors(5);
-const duo = chroma.scale([ duoColor, bg[3] ]).mode(colorMode).colors(5);
-const tri = chroma.scale([ triColor, bg[3] ]).mode(colorMode).colors(5);
+const unoColor  = chroma(fg[2]).saturate(.8); // Based on background
+const duoColor  = accent1Color; // Accent 1
+const triColor  = accent2Color; // Accent 2
+
+const uno = chroma.scale([ fg[0], unoColor, bgColor ]).correctLightness().padding([0, 0.25]).mode(colorMode).colors(5);
+const duo = chroma.scale([ duoColor, bgColor ]).padding([0, 0.4]).mode(colorMode).colors(3);
+const tri = chroma.scale([ triColor, bgColor ]).padding([0, 0.4]).mode(colorMode).colors(3);
 
 // Theme -------------------------------------------------------------
 
@@ -63,7 +58,7 @@ function buildTheme({ name }) {
       "textLink.foreground": duo[0],
 
       "titleBar.activeForeground"  : color.fg,
-      "titleBar.activeBackground"  : color.bgD1,
+      "titleBar.activeBackground"  : color.bgD2,
       "titleBar.border"            : color.bd,
 
       "activityBar.foreground"        : color.fg,
@@ -72,23 +67,24 @@ function buildTheme({ name }) {
       "activityBar.border"            : color.bd,
       "activityBar.activeBorder"      : tri[0],
 
-      "tab.activeForeground": color.fg,
+      "tab.activeForeground": color.fgU1,
       "tab.inactiveForeground": color.fgD2,
-      "tab.inactiveBackground": color.bgD1,
+      "tab.inactiveBackground": color.bgD2,
       "tab.activeBackground": color.bg,
       "tab.border": color.bd,
       "tab.activeBorderTop": tri[0],
-      "editorGroupHeader.tabsBackground": color.bgD1,
+      "editorGroupHeader.tabsBackground": color.bgD2,
 
-      "tree.indentGuidesStroke"         : color.bgU1,
-      "list.inactiveSelectionBackground": color.bgU1,
-      "list.activeSelectionBackground"  : color.bgU2,
-      "list.hoverBackground"            : color.bgU1,
+      "tree.indentGuidesStroke"         : color.bg,
+      "list.inactiveSelectionBackground": color.bg,
+      "list.activeSelectionBackground"  : color.bgU1,
+      "list.hoverBackground"            : color.bg,
 
-      "sideBar.foreground"             : color.fgD1,
-      "sideBar.background"             : color.bgD1,
+      "sideBar.foreground"             : color.fgD2,
+      "sideBar.background"             : color.bgD2,
       "sideBar.border"                 : color.bd,
-      "sideBarSectionHeader.background": color.bgD1,
+      "sideBarSectionHeader.foreground": color.fgD1,
+      "sideBarSectionHeader.background": color.bgD2,
       "sideBarSectionHeader.border": color.bd,
 
       "statusBar.foreground"             : color.fgD1,
@@ -97,20 +93,30 @@ function buildTheme({ name }) {
 
       "editor.foreground"                 : uno[0],
       "editor.background"                 : color.bg,
-      "editorLineNumber.foreground"       : color.fgD2,
-      "editorLineNumber.activeForeground" : color.fg,
+      "editorLineNumber.foreground"       : uno[4],
+      "editorLineNumber.activeForeground" : uno[1],
       "editorIndentGuide.background":       color.bgU1,
       "editorIndentGuide.activeBackground": color.bgU2,
 
-      "panel.background"             : color.bgD1,
+      "panel.background"             : color.bgD2,
       "panel.border"                 : color.bd,
+
+      "dropdown.background"     : color.bgU1,
+      "dropdown.border"         : color.bgU2,
+      "dropdown.foreground"     : color.fg,
+      "dropdown.listBackground" : color.bgD1,
+
+      "input.background"            : color.bgD1,
+      "input.border"                : color.bgU1,
+      "input.foreground"            : color.fg,
+      "input.placeholderForeground" : color.fgD2,
     },
     semanticHighlighting: true,
     tokenColors: [
       {
         scope: "comment",
         settings: {
-          foreground: uno[2],
+          foreground: uno[4],
         },
       },
       {
@@ -122,7 +128,7 @@ function buildTheme({ name }) {
       {
         scope: "keyword",
         settings: {
-          foreground: uno[1],
+          foreground: uno[2],
         },
       },
       {
