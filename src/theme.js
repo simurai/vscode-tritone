@@ -2,14 +2,20 @@ const chroma = require("chroma-js");
 
 // Theme ----------------------------------------------------------
 
-// const bgColor      = 'hsl(249, 13%, 19%)'; // Background
-const bgColor      = 'hsl(210, 24%, 15%)'; // Background
+// Dark mode
+const bgColor      = 'hsl(249, 13%, 19%)'; // Background
+// const bgColor      = 'hsl(210, 24%, 15%)'; // Background
 // const bgColor      = 'hsl(240, 12%, 16%)'; // Background
 // const bgColor      = 'hsl(27, 10%, 18%)'; // Background
 // const bgColor      = 'hsl(120, 3%, 17%)'; // Background
 
 const accent1Color = 'hsl(190, 88%, 70%)'; // Accent 1
 const accent2Color = 'hsl(159, 99%, 68%)'; // Accent 2
+
+// Light mode
+// const bgColor      = 'hsl(40, 100%, 95%)'; // Background white
+// const accent1Color = 'hsl(150, 99%, 30%)'; // Accent 1
+// const accent2Color = 'hsl(240, 99%, 25%)'; // Accent 2
 
 const fgSaturate = 0.5;
 const fgContrast = 0.5;
@@ -18,18 +24,37 @@ const bgContrast = 0.5;
 // Config ----------------------------------------------------------
 
 const colorMode = 'lab';
-const bdScale = bgContrast >= 0.5 ? 6 : 0; // switch border scale based on contrast
+
+// Color modes ----------------------------------------------------------
+
+const mode = chroma(bgColor).luminance() > 0.5 ? 'light' : 'dark'; // light/dark mode
+const modeColor = mode == 'dark' ? 'white' : 'black'; // use white/black
+
+const bdScale = (bgContrast < 0.4 && mode == 'dark') ? 0 : 6; // switch border scale based on contrast
+
+const fgContrastModeAdjustment = mode == 'light' ? 0.25 : 0; // shift for dark fg
 const fgContrastPadding = 0.5 - fgContrast; // Cust off range
 
-// UI -------------------------------------------------------------
+// UI
 
-const fgColor = chroma.mix(bgColor, `white`, fgContrast).saturate(fgSaturate); // Based on background
+const fgColor = chroma.mix(bgColor, modeColor, fgContrast + fgContrastModeAdjustment).saturate(fgSaturate); // Based on background
 const bgUColor = chroma(bgColor).brighten(bgContrast);
 const bgDColor = chroma(bgColor).darken(bgContrast);
 
-
-const fg = chroma.scale([ 'white', fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
+const fg = chroma.scale([ modeColor, fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
 const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
+
+// Syntax
+
+const unoColor  = fgColor.saturate(fgSaturate * 2); // increased saturation
+const duoColor  = accent1Color; // Accent 1
+const triColor  = accent2Color; // Accent 2
+
+const uno = chroma.scale([ fg[0], unoColor, bgColor ]).correctLightness().padding([fgContrastPadding, 0.25]).mode(colorMode).colors(5);
+const duo = chroma.scale([ duoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
+const tri = chroma.scale([ triColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
+
+// UI Scale -------------------------------------------------------------
 
 const color = {
   'fg1u' : fg[0],
@@ -46,16 +71,6 @@ const color = {
 
   'bd'   : bg[bdScale], // 6 or 0
 }
-
-// Syntax -------------------------------------------------------------
-
-const unoColor  = fgColor.saturate(fgSaturate * 2); // increased saturation
-const duoColor  = accent1Color; // Accent 1
-const triColor  = accent2Color; // Accent 2
-
-const uno = chroma.scale([ fg[0], unoColor, bgColor ]).correctLightness().padding([fgContrastPadding, 0.25]).mode(colorMode).colors(5);
-const duo = chroma.scale([ duoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
-const tri = chroma.scale([ triColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
 
 // Theme -------------------------------------------------------------
 
