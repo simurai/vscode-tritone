@@ -2,22 +2,33 @@ const chroma = require("chroma-js");
 
 // Theme ----------------------------------------------------------
 
+// const bgColor      = 'hsl(249, 13%, 19%)'; // Background
 const bgColor      = 'hsl(210, 24%, 15%)'; // Background
+// const bgColor      = 'hsl(240, 12%, 16%)'; // Background
+// const bgColor      = 'hsl(27, 10%, 18%)'; // Background
+// const bgColor      = 'hsl(120, 3%, 17%)'; // Background
+
 const accent1Color = 'hsl(190, 88%, 70%)'; // Accent 1
 const accent2Color = 'hsl(159, 99%, 68%)'; // Accent 2
 
+const fgSaturate = 0.5;
+const fgContrast = 0.5;
 const bgContrast = 0.5;
 
 // Config ----------------------------------------------------------
 
 const colorMode = 'lab';
+const bdScale = bgContrast >= 0.5 ? 6 : 0; // switch border scale based on contrast
+const fgContrastPadding = 0.5 - fgContrast; // Cust off range
 
 // UI -------------------------------------------------------------
 
+const fgColor = chroma.mix(bgColor, `white`, fgContrast).saturate(fgSaturate); // Based on background
 const bgUColor = chroma(bgColor).brighten(bgContrast);
 const bgDColor = chroma(bgColor).darken(bgContrast);
 
-const fg = chroma.scale([ 'white', bgColor ]).padding([0.01, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
+
+const fg = chroma.scale([ 'white', fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
 const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
 const color = {
@@ -33,18 +44,18 @@ const color = {
   'bgD1' : bg[4],
   'bgD2' : bg[5],
 
-  'bd'   : bg[6],
+  'bd'   : bg[bdScale], // 6 or 0
 }
 
 // Syntax -------------------------------------------------------------
 
-const unoColor  = chroma(fg[2]).saturate(.8); // Based on background
+const unoColor  = fgColor.saturate(fgSaturate * 2); // increased saturation
 const duoColor  = accent1Color; // Accent 1
 const triColor  = accent2Color; // Accent 2
 
-const uno = chroma.scale([ fg[0], unoColor, bgColor ]).correctLightness().padding([0, 0.25]).mode(colorMode).colors(5);
-const duo = chroma.scale([ duoColor, bgColor ]).padding([0, 0.4]).mode(colorMode).colors(3);
-const tri = chroma.scale([ triColor, bgColor ]).padding([0, 0.4]).mode(colorMode).colors(3);
+const uno = chroma.scale([ fg[0], unoColor, bgColor ]).correctLightness().padding([fgContrastPadding, 0.25]).mode(colorMode).colors(5);
+const duo = chroma.scale([ duoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
+const tri = chroma.scale([ triColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
 
 // Theme -------------------------------------------------------------
 
