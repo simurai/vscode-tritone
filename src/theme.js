@@ -13,7 +13,7 @@ const accent1Color = 'hsl(190, 88%, 70%)'; // Accent 1
 const accent2Color = 'hsl(159, 99%, 68%)'; // Accent 2
 
 // Light mode
-// const bgColor      = 'hsl(40, 100%, 95%)'; // Background white
+// const bgColor      = 'hsl(200, 100%, 99%)'; // Background white
 // const accent1Color = 'hsl(150, 99%, 30%)'; // Accent 1
 // const accent2Color = 'hsl(240, 99%, 25%)'; // Accent 2
 
@@ -24,22 +24,28 @@ const bgContrast = 0.5;
 // Config ----------------------------------------------------------
 
 const colorMode = 'lab';
+const mode = chroma(bgColor).luminance() > 0.5 ? 'light' : 'dark';
 
 // Color modes ----------------------------------------------------------
 
-const mode = chroma(bgColor).luminance() > 0.5 ? 'light' : 'dark'; // light/dark mode
-const modeColor = mode == 'dark' ? 'white' : 'black'; // use white/black
+if (mode == 'light') {
+  var modeColor = 'black';
+  var bdScale = 6;
+  var fgContrastPadding = 0.5 - fgContrast; // Adjust range of the scale
+  var fgColor = chroma.mix(bgColor, modeColor, 0.25 + fgContrast).saturate(fgSaturate); // Based on background
+  var bgUColor = chroma(bgColor).darken(bgContrast); // darken both directions
+  var bgDColor = chroma(bgColor).darken(bgContrast);
 
-const bdScale = (bgContrast < 0.4 && mode == 'dark') ? 0 : 6; // switch border scale based on contrast
-
-const fgContrastModeAdjustment = mode == 'light' ? 0.25 : 0; // shift for dark fg
-const fgContrastPadding = 0.5 - fgContrast; // Cust off range
+} else if (mode == 'dark') {
+  var modeColor = 'white';
+  var bdScale = bgContrast < 0.4 ? 0 : 6;
+  var fgContrastPadding = 0.5 - fgContrast; // Adjust range of the scale
+  var fgColor = chroma.mix(bgColor, modeColor, fgContrast).saturate(fgSaturate); // Based on background
+  var bgUColor = chroma(bgColor).brighten(bgContrast);
+  var bgDColor = chroma(bgColor).darken(bgContrast);
+}
 
 // UI
-
-const fgColor = chroma.mix(bgColor, modeColor, fgContrast + fgContrastModeAdjustment).saturate(fgSaturate); // Based on background
-const bgUColor = chroma(bgColor).brighten(bgContrast);
-const bgDColor = chroma(bgColor).darken(bgContrast);
 
 const fg = chroma.scale([ modeColor, fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
 const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
