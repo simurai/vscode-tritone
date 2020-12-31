@@ -1,42 +1,55 @@
 const chroma = require("chroma-js");
 
+// Theme ----------------------------------------------------------
+
+const mode = 'dark';
+const saturation = 0.6;
+const contrast = 0.6;
+const hue = 220;
+const hueRotate = 60;
 
 // Config ----------------------------------------------------------
 
 const colorMode = 'lab';
 
-// Theme ----------------------------------------------------------
+// Colors ----------------------------------------------------------
 
-const mode = 'dark';
+const hue1 = hue;
+const hue2 = hue1 + hueRotate;
+const hue3 = hue2 + hueRotate;
 
-const monoColor = 'hsl(290, 44%, 60%)';
-const unoColor  = 'hsl(320, 99%, 88%)';
-const duoColor  = 'hsl(120, 88%, 66%)';
-const triColor  = 'hsl( 50, 99%, 66%)';
+const unoColor  = chroma.hsl(hue1, 0.7, 0.7); // Syntax 1
+const duoColor  = chroma.hsl(hue2, 0.7, 0.7); // Syntax 2
+const triColor  = chroma.hsl(hue3, 0.7, 0.7); // Syntax 3 + accent color
 
 // UI -------------------------------------------------------------
 
-const fg = chroma.scale([ 'white', monoColor, ]).mode(colorMode).colors(9);
-const bg = chroma.scale([  monoColor, 'black' ]).mode(colorMode).colors(9);
+
+const scale = chroma.scale([ 'white', unoColor, 'black' ]).padding([0.05, 0.05]).mode(colorMode).colors(6);
+const bg = chroma.scale([  scale[4], scale[5] ]).mode(colorMode).colors(7);
+const fg = chroma.scale([ scale[0], bg[3] ]).mode(colorMode).colors(6);
 
 const color = {
-  'fg'   : fg[2],
-  'fgD1' : fg[4],
-  'fgD2' : fg[6],
+  'fgU1' : fg[0],
+  'fg'   : fg[1],
+  'fgD1' : fg[2],
+  'fgD2' : fg[3],
 
-  'bgU2' : bg[4],
-  'bgU1' : bg[5],
-  'bg'   : bg[6],
-  'bgD1' : bg[7],
+  'bgU3' : bg[0],
+  'bgU2' : bg[1],
+  'bgU1' : bg[2],
+  'bg'   : bg[3],
+  'bgD1' : bg[4],
+  'bgD2' : bg[5],
 
-  'bd'   : bg[8],
+  'bd'   : bg[6],
 }
 
 // Syntax -------------------------------------------------------------
 
-const uno = chroma.scale([ unoColor, bg[4] ]).mode(colorMode).colors(5);
-const duo = chroma.scale([ duoColor, bg[4] ]).mode(colorMode).colors(5);
-const tri = chroma.scale([ triColor, bg[4] ]).mode(colorMode).colors(5);
+const uno = chroma.scale([ fg[0], bg[3] ]).mode(colorMode).colors(5);
+const duo = chroma.scale([ duoColor, bg[3] ]).mode(colorMode).colors(5);
+const tri = chroma.scale([ triColor, bg[3] ]).mode(colorMode).colors(5);
 
 // Theme -------------------------------------------------------------
 
@@ -59,7 +72,7 @@ function buildTheme({ name }) {
       "activityBar.border"            : color.bd,
       "activityBar.activeBorder"      : tri[0],
 
-      "tab.activeForeground": color.fgD1,
+      "tab.activeForeground": color.fg,
       "tab.inactiveForeground": color.fgD2,
       "tab.inactiveBackground": color.bgD1,
       "tab.activeBackground": color.bg,
@@ -84,6 +97,8 @@ function buildTheme({ name }) {
 
       "editor.foreground"                 : uno[0],
       "editor.background"                 : color.bg,
+      "editorLineNumber.foreground"       : color.fgD2,
+      "editorLineNumber.activeForeground" : color.fg,
       "editorIndentGuide.background":       color.bgU1,
       "editorIndentGuide.activeBackground": color.bgU2,
 
@@ -95,7 +110,7 @@ function buildTheme({ name }) {
       {
         scope: "comment",
         settings: {
-          foreground: uno[3],
+          foreground: uno[2],
         },
       },
       {
@@ -107,7 +122,7 @@ function buildTheme({ name }) {
       {
         scope: "keyword",
         settings: {
-          foreground: uno[2],
+          foreground: uno[1],
         },
       },
       {
