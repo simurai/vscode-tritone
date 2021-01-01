@@ -68,82 +68,83 @@ function buildTheme({ ...args }) {
     name: args.name,
     type: mode,
     colors: {
-
-      // fg1u
-      "tab.activeForeground": color.fg1u,
-
-      // fg
-      "foreground": color.fg,
-      "titleBar.activeForeground": color.fg,
+      "activityBar.activeBorder": uno[0],
+      "activityBar.background": color.bg,
+      "activityBar.border": color.bd,
       "activityBar.foreground": color.fg,
-      "input.foreground": color.fg,
-      "dropdown.foreground": color.fg,
+      "activityBar.inactiveForeground": color.fg2d,
 
-      // fg1d
-      "sideBarSectionHeader.foreground": color.fg1d,
-      "statusBar.foreground" : color.fg1d,
+      "button.background": duo[2],
+      "button.foreground": color.fg1u,
+      "button.hoverBackground": chroma(duo[2]).brighten(0.1).hex(),
+
+      "checkbox.background": color.bg1d,
+      "checkbox.border": color.bg3u,
+      "checkbox.foreground": color.fg1u,
+
       "descriptionForeground": color.fg1d,
 
-      // fg2d
-      "sideBar.foreground": color.fg2d,
-      "input.placeholderForeground": color.fg2d,
-      "activityBar.inactiveForeground": color.fg2d,
-      "tab.inactiveForeground": color.fg2d,
-
-      // bg3u
-
-      // bg2u
-      "editorIndentGuide.activeBackground": color.bg2u,
-      "dropdown.border": color.bg2u,
-
-      // bg1u
-      "list.activeSelectionBackground": color.bg1u,
-      "editorIndentGuide.background": color.bg1u,
-      "input.border": color.bg1u,
       "dropdown.background": color.bg1u,
-
-      // bg
-      "titleBar.activeBackground": color.bg,
-      "titleBar.inactiveBackground": color.bg,
-      "activityBar.background": color.bg,
-      "tab.activeBackground": color.bg,
-      "tree.indentGuidesStroke": color.bg,
-      "list.inactiveSelectionBackground": color.bg,
-      "list.hoverBackground": color.bg,
-      "statusBar.background": color.bg,
-      "editor.background": color.bg,
-
-      // bg1d
-      "input.background": color.bg1d,
+      "dropdown.border": color.bg2u,
+      "dropdown.foreground": color.fg,
       "dropdown.listBackground": color.bg1d,
 
-      // bg2d
-      "tab.inactiveBackground": color.bg2d,
-      "panel.background": color.bg2d,
-      "editorGroupHeader.tabsBackground": color.bg2d,
-      "sideBar.background": color.bg2d,
-      "sideBarSectionHeader.background": color.bg2d,
-
-      // bd
-      "titleBar.border": color.bd,
-      "activityBar.border": color.bd,
-      "tab.border": color.bd,
-      "panel.border": color.bd,
-      "statusBar.border": color.bd,
-      "sideBarSectionHeader.border": color.bd,
-      "sideBar.border": color.bd,
-
-      // uno
-      "activityBar.activeBorder": uno[0],
-      "tab.activeBorderTop": uno[0],
-
-      // duo
-      "textLink.foreground": duo[0],
-
-      // tri
+      "editor.background": color.bg,
       "editor.foreground": tri[0],
+      "editorGroupHeader.tabsBackground": color.bg2d,
+      "editorIndentGuide.activeBackground": color.bg2u,
+      "editorIndentGuide.background": color.bg1u,
       "editorLineNumber.activeForeground"  : tri[1],
       "editorLineNumber.foreground": tri[4],
+      "errorForeground": uno[0],
+
+      "focusBorder": duo[0],
+      "foreground": color.fg,
+
+      "input.background": color.bg1d,
+      "input.border": color.bg1u,
+      "input.foreground": color.fg,
+      "input.placeholderForeground": color.fg2d,
+
+      "list.activeSelectionBackground": color.bg1u,
+      "list.hoverBackground": color.bg,
+      "list.inactiveSelectionBackground": color.bg,
+
+      "panel.background": color.bg2d,
+      "panel.border": color.bd,
+
+      "sideBar.background": color.bg2d,
+      "sideBar.border": color.bd,
+      "sideBar.foreground": color.fg2d,
+      "sideBarSectionHeader.background": color.bg2d,
+      "sideBarSectionHeader.border": color.bd,
+      "sideBarSectionHeader.foreground": color.fg1d,
+
+      "statusBar.background": color.bg,
+      "statusBar.border": color.bd,
+      "statusBar.foreground" : color.fg1d,
+
+      "tab.activeBackground": color.bg,
+      "tab.activeBorderTop": uno[0],
+      "tab.activeForeground": color.fg1u,
+      "tab.border": color.bd,
+      "tab.inactiveBackground": color.bg2d,
+      "tab.inactiveForeground": color.fg2d,
+
+      "textBlockQuote.background": color.bg1d,
+      "textBlockQuote.border": color.bg1u,
+      "textCodeBlock.background": color.bg1u,
+      "textLink.activeForeground": chroma(tri[2]).brighten(0.33).hex(),
+      "textLink.foreground": tri[2],
+      "textPreformat.foreground": color.fg1d,
+      "textSeparator.foreground": color.fg2d,
+
+      "titleBar.activeBackground": color.bg,
+      "titleBar.activeForeground": color.fg,
+      "titleBar.border": color.bd,
+      "titleBar.inactiveBackground": color.bg,
+
+      "tree.indentGuidesStroke": color.bg,
     },
     semanticHighlighting: true,
     tokenColors: [
