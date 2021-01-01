@@ -74,7 +74,8 @@ function buildTheme({ ...args }) {
       "textLink.foreground": duo[0],
 
       "titleBar.activeForeground"  : color.fg,
-      "titleBar.activeBackground"  : color.bg2d,
+      "titleBar.activeBackground"  : color.bg,
+      "titleBar.inactiveBackground": color.bg,
       "titleBar.border"            : color.bd,
 
       "activityBar.foreground"        : color.fg,
