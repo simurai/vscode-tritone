@@ -47,19 +47,19 @@ function buildTheme({ ...args }) {
 
   // UI Scale
   const color = {
-    'fg1u' : fg[0],
-    'fg'   : fg[1],
-    'fg1d' : fg[2],
-    'fg2d' : fg[3],
+    'fg1u' : fg[0], // 1 up
+    'fg'   : fg[1], // foreground
+    'fg1d' : fg[2], // 1 down
+    'fg2d' : fg[3], // 2 down
 
-    'bg3u' : bg[0],
-    'bg2u' : bg[1],
-    'bg1u' : bg[2],
-    'bg'   : bg[3],
-    'bg1d' : bg[4],
-    'bg2d' : bg[5],
+    'bg3u' : bg[0], // 3 up
+    'bg2u' : bg[1], // 2 up
+    'bg1u' : bg[2], // 1 up
+    'bg'   : bg[3], // background
+    'bg1d' : bg[4], // 1 down
+    'bg2d' : bg[5], // 2 down
 
-    'bd'   : bg[bdScale], // 6 or 0
+    'bd'   : bg[bdScale], // border (6 or 0)
   }
 
   // Output -------------------------------------------------------------
@@ -84,12 +84,12 @@ function buildTheme({ ...args }) {
       "activityBar.border"            : color.bd,
       "activityBar.activeBorder"      : uno[0],
 
-      "tab.activeForeground": color.fg1u,
-      "tab.inactiveForeground": color.fg2d,
-      "tab.inactiveBackground": color.bg2d,
-      "tab.activeBackground": color.bg,
-      "tab.border": color.bd,
-      "tab.activeBorderTop": uno[0],
+      "tab.activeForeground"            : color.fg1u,
+      "tab.inactiveForeground"          : color.fg2d,
+      "tab.inactiveBackground"          : color.bg2d,
+      "tab.activeBackground"            : color.bg,
+      "tab.border"                      : color.bd,
+      "tab.activeBorderTop"             : uno[0],
       "editorGroupHeader.tabsBackground": color.bg2d,
 
       "tree.indentGuidesStroke"         : color.bg,
@@ -97,26 +97,26 @@ function buildTheme({ ...args }) {
       "list.activeSelectionBackground"  : color.bg1u,
       "list.hoverBackground"            : color.bg,
 
-      "sideBar.foreground"             : color.fg2d,
-      "sideBar.background"             : color.bg2d,
-      "sideBar.border"                 : color.bd,
+      "sideBar.foreground"              : color.fg2d,
+      "sideBar.background"              : color.bg2d,
+      "sideBar.border"                  : color.bd,
       "sideBarSectionHeader.foreground": color.fg1d,
       "sideBarSectionHeader.background": color.bg2d,
-      "sideBarSectionHeader.border": color.bd,
+      "sideBarSectionHeader.border"    : color.bd,
 
-      "statusBar.foreground"             : color.fg1d,
-      "statusBar.background"             : color.bg,
-      "statusBar.border"                 : color.bd,
+      "statusBar.foreground" : color.fg1d,
+      "statusBar.background" : color.bg,
+      "statusBar.border"     : color.bd,
 
-      "editor.foreground"                 : tri[0],
-      "editor.background"                 : color.bg,
-      "editorLineNumber.foreground"       : tri[4],
-      "editorLineNumber.activeForeground" : tri[1],
-      "editorIndentGuide.background":       color.bg1u,
+      "editor.foreground"                  : tri[0],
+      "editor.background"                  : color.bg,
+      "editorLineNumber.foreground"        : tri[4],
+      "editorLineNumber.activeForeground"  : tri[1],
+      "editorIndentGuide.background"       : color.bg1u,
       "editorIndentGuide.activeBackground": color.bg2u,
 
-      "panel.background"             : color.bg2d,
-      "panel.border"                 : color.bd,
+      "panel.background" : color.bg2d,
+      "panel.border"     : color.bd,
 
       "dropdown.background"     : color.bg1u,
       "dropdown.border"         : color.bg2u,
@@ -131,28 +131,20 @@ function buildTheme({ ...args }) {
     semanticHighlighting: true,
     tokenColors: [
       {
-        scope: "comment",
-        settings: {
-          foreground: tri[4],
-        },
-      },
-      {
         scope: "variable",
-        settings: {
-          foreground: uno[0],
-        },
-      },
-      {
-        scope: "keyword",
-        settings: {
-          foreground: tri[2],
-        },
+        settings: { foreground: uno[0] }
       },
       {
         scope: "string",
-        settings: {
-          foreground: duo[0],
-        },
+        settings: { foreground: duo[0] }
+      },
+      {
+        scope: "keyword",
+        settings: { foreground: tri[2] }
+      },
+      {
+        scope: "comment",
+        settings: { foreground: tri[4] }
       },
     ],
   };

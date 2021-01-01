@@ -54,15 +54,15 @@
   "semanticHighlighting": true,
   "tokenColors": [
     {
-      "scope": "comment",
-      "settings": {
-        "foreground": "#526c85"
-      }
-    },
-    {
       "scope": "variable",
       "settings": {
         "foreground": "#5dfec6"
+      }
+    },
+    {
+      "scope": "string",
+      "settings": {
+        "foreground": "#6fdff6"
       }
     },
     {
@@ -72,9 +72,9 @@
       }
     },
     {
-      "scope": "string",
+      "scope": "comment",
       "settings": {
-        "foreground": "#6fdff6"
+        "foreground": "#526c85"
       }
     }
   ]
