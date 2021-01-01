@@ -33,7 +33,7 @@ function buildTheme({ ...args }) {
   }
 
   // UI
-  const fg = chroma.scale([ modeColor, fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(4); // padding cuts off the edges
+  const fg = chroma.scale([ modeColor, fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(5); // padding cuts off the edges
   const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
   // Syntax
@@ -51,6 +51,7 @@ function buildTheme({ ...args }) {
     'fg'   : fg[1], // foreground
     'fg1d' : fg[2], // 1 down
     'fg2d' : fg[3], // 2 down
+    'fg3d' : fg[4], // 3 down
 
     'bg3u' : bg[0], // 3 up
     'bg2u' : bg[1], // 2 up
@@ -83,11 +84,19 @@ function buildTheme({ ...args }) {
       "button.foreground": color.fg1u,
       "button.hoverBackground": chroma(duo[2]).brighten(0.1).hex(),
 
+      "breadcrumb.foreground": color.fg2d,
+      "breadcrumb.focusForeground": color.fg1d,
+      "breadcrumb.activeSelectionForeground": color.fg,
+      "breadcrumbPicker.background": color.bg1u,
+
       "checkbox.background": color.bg1d,
       "checkbox.border": color.bg3u,
       "checkbox.foreground": color.fg1u,
 
       "descriptionForeground": color.fg1d,
+
+      "diffEditor.insertedTextBackground": chroma(uno[0]).alpha(0.2).hex(),
+      "diffEditor.removedTextBackground": chroma(duo[0]).alpha(0.2).hex(),
 
       "dropdown.background": color.bg1u,
       "dropdown.border": color.bg2u,
@@ -102,9 +111,41 @@ function buildTheme({ ...args }) {
       "editorLineNumber.activeForeground"  : tri[1],
       "editorLineNumber.foreground": tri[4],
       "errorForeground": uno[0],
+      "editorGroupHeader.tabsBorder": color.bg,
+      "editorGroup.border": color.bd,
+      "editorWidget.background": color.bg2u,
+      "editor.foldBackground": color.bg1u,
+      "editor.lineHighlightBackground": chroma.mix(color.bg, uno[0], 0.0075).hex(),
+      "editorWhitespace.foreground": tri[4],
+      "editorCursor.foreground": uno[0],
+
+      "editor.findMatchBackground"          : chroma(uno[0]).alpha(0.3).hex(),
+      "editor.findMatchHighlightBackground" : chroma(uno[0]).alpha(0.15).hex(),
+      "editor.inactiveSelectionBackground"  : chroma(tri[2]).alpha(0.1).hex(),
+      "editor.selectionBackground"          : chroma(tri[2]).alpha(0.2).hex(),
+      "editor.selectionHighlightBackground" : chroma(tri[2]).alpha(0.2).hex(),
+      "editor.selectionHighlightBorder"     : chroma(tri[2]).alpha(0).hex(),
+      "editor.wordHighlightBackground"      : chroma(uno[0]).alpha(0).hex(),
+      "editor.wordHighlightStrongBackground": chroma(uno[0]).alpha(0).hex(),
+      "editor.wordHighlightBorder"          : chroma(uno[0]).alpha(0.4).hex(),
+      "editor.wordHighlightStrongBorder"    : chroma(uno[0]).alpha(0.2).hex(),
+      "editorBracketMatch.background"       : chroma(duo[0]).alpha(0.3).hex(),
+      "editorBracketMatch.border"           : chroma(duo[0]).alpha(0).hex(),
+
+      "editorGutter.modifiedBackground": tri[2],
+      "editorGutter.addedBackground": uno[0],
+      "editorGutter.deletedBackground": duo[0],
 
       "focusBorder": duo[0],
       "foreground": color.fg,
+
+      "gitDecoration.addedResourceForeground": uno[0],
+      "gitDecoration.modifiedResourceForeground": tri[2],
+      "gitDecoration.deletedResourceForeground": duo[0],
+      "gitDecoration.untrackedResourceForeground": uno[0],
+      "gitDecoration.ignoredResourceForeground": color.fg3d,
+      "gitDecoration.conflictingResourceForeground": duo[1],
+      "gitDecoration.submoduleResourceForeground": color.fg3d,
 
       "input.background": color.bg1d,
       "input.border": color.bg1u,
@@ -120,10 +161,49 @@ function buildTheme({ ...args }) {
       "list.inactiveSelectionBackground": color.bg,
       "list.inactiveSelectionForeground": color.fg,
 
+      "notificationCenterHeader.foreground": color.fg1d,
+      "notificationCenterHeader.background": color.bg,
+      "notifications.foreground": color.fg,
+      "notifications.background": color.bg1u,
+      "notifications.border": color.bd,
+      "notificationsErrorIcon.foreground": uno[0],
+      "notificationsWarningIcon.foreground": duo[0],
+      "notificationsInfoIcon.foreground": tri[2],
+
       "panel.background": color.bg2d,
       "panel.border": color.bd,
+      "panelTitle.activeBorder": uno[0],
+      "panelTitle.activeForeground": color.fg1d,
+      "panelTitle.inactiveForeground": color.fg2d,
+      "panelInput.border": color.bd,
+
+      "peekViewEditor.matchHighlightBackground": chroma(uno[0]).alpha(0.3).hex(),
+      "peekViewResult.matchHighlightBackground": chroma(uno[0]).alpha(0.3).hex(),
+      "peekViewEditor.background": color.bg1d,
+      "peekViewResult.background": color.bg1d,
+      "peekView.border": color.bg3u,
+      "peekViewTitle.background": color.bg1u,
+      "peekViewTitleDescription.foreground": color.fg2d,
+      "peekViewTitleLabel.foreground": color.fg,
+
+      "pickerGroup.border": color.bd,
+      "pickerGroup.foreground": color.fg,
 
       "progressBar.background": uno[0],
+
+      "quickInput.background": color.bg1u,
+      "quickInput.foreground": color.fg,
+
+      "scrollbar.shadow": color.bd,
+      "scrollbarSlider.background": chroma(color.fg).alpha(0.075).hex(),
+      "scrollbarSlider.hoverBackground": chroma(color.fg).alpha(0.08).hex(),
+      "scrollbarSlider.activeBackground": chroma(color.fg).alpha(0.1).hex(),
+      "editorOverviewRuler.border": color.bd,
+
+      "settings.headerForeground": color.fg1u,
+      "settings.modifiedItemIndicator": color.bg3u,
+      "settings.focusedRowBackground": color.bg,
+      "notebook.focusedRowBorder": color.bg,
 
       "sideBar.background": color.bg2d,
       "sideBar.border": color.bd,
@@ -133,9 +213,13 @@ function buildTheme({ ...args }) {
       "sideBarSectionHeader.foreground": color.fg1d,
       "sideBarTitle.foreground": color.fg2d,
 
+      "statusBar.foreground": color.fg1d,
       "statusBar.background": color.bg,
       "statusBar.border": color.bd,
-      "statusBar.foreground" : color.fg1d,
+      "statusBar.noFolderBackground": color.bg,
+      "statusBar.debuggingBackground": tri[4],
+      "statusBar.debuggingForeground": color.fg1u,
+      "statusBarItem.prominentBackground": color.bg1u,
 
       "tab.activeBackground": color.bg,
       "tab.activeBorderTop": uno[0],
@@ -143,6 +227,12 @@ function buildTheme({ ...args }) {
       "tab.border": color.bd,
       "tab.inactiveBackground": color.bg2d,
       "tab.inactiveForeground": color.fg2d,
+      "tab.hoverBackground": color.bg,
+      "tab.unfocusedHoverBackground": color.bg1d,
+      "tab.unfocusedActiveBorderTop": color.bg,
+      "tab.unfocusedActiveBorder": color.bg,
+
+      "terminal.foreground": color.fg1d,
 
       "textBlockQuote.background": color.bg1d,
       "textBlockQuote.border": color.bg1u,
@@ -159,6 +249,9 @@ function buildTheme({ ...args }) {
       "titleBar.inactiveForeground": color.fg2d,
 
       "tree.indentGuidesStroke": chroma(color.fg).alpha(0.075).hex(),
+
+      "welcomePage.buttonBackground": color.bg1u,
+      "welcomePage.buttonHoverBackground": chroma(color.bg1u).brighten(0.1).hex(),
     },
     semanticHighlighting: true,
     tokenColors: [
