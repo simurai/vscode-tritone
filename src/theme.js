@@ -5,8 +5,8 @@ const colorMode = 'lab';
 function buildTheme({ ...args }) {
 
   // Config
-  const accent1Color = args.accent1Color || 'hsl(320, 88%, 80%)'; // Accent 1
-  const accent2Color = args.accent2Color || 'hsl(120, 88%, 84%)'; // Accent 2
+  const accent1Color = args.accent1Color || 'hsl(120, 88%, 84%)'; // Accent 1
+  const accent2Color = args.accent2Color || 'hsl(320, 88%, 80%)'; // Accent 2
   const bgColor      = args.bgColor      || 'hsl(200, 3%, 16%)'; // Background
   const fgSaturate   = args.fgSaturate   || 0.5;
   const fgContrast   = args.fgContrast   || 0.5;
@@ -37,13 +37,13 @@ function buildTheme({ ...args }) {
   const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
   // Syntax
-  const unoColor  = fgColor.saturate(fgSaturate * 2); // increased saturation
-  const duoColor  = accent1Color; // Accent 1
-  const triColor  = accent2Color; // Accent 2
+  const unoColor  = accent1Color; // Accent 1
+  const duoColor  = accent2Color; // Accent 2
+  const triColor  = fgColor.saturate(fgSaturate * 2); // Main
 
-  const uno = chroma.scale([ fg[0], unoColor, bgColor ]).correctLightness().padding([fgContrastPadding, 0.25]).mode(colorMode).colors(5);
+  const uno = chroma.scale([ unoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
   const duo = chroma.scale([ duoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
-  const tri = chroma.scale([ triColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
+  const tri = chroma.scale([ fg[0], triColor, bgColor ]).correctLightness().padding([fgContrastPadding, 0.25]).mode(colorMode).colors(5);
 
   // UI Scale
   const color = {
@@ -82,14 +82,14 @@ function buildTheme({ ...args }) {
       "activityBar.inactiveForeground": color.fg2d,
       "activityBar.background"        : color.bg,
       "activityBar.border"            : color.bd,
-      "activityBar.activeBorder"      : tri[0],
+      "activityBar.activeBorder"      : uno[0],
 
       "tab.activeForeground": color.fg1u,
       "tab.inactiveForeground": color.fg2d,
       "tab.inactiveBackground": color.bg2d,
       "tab.activeBackground": color.bg,
       "tab.border": color.bd,
-      "tab.activeBorderTop": tri[0],
+      "tab.activeBorderTop": uno[0],
       "editorGroupHeader.tabsBackground": color.bg2d,
 
       "tree.indentGuidesStroke"         : color.bg,
@@ -108,10 +108,10 @@ function buildTheme({ ...args }) {
       "statusBar.background"             : color.bg,
       "statusBar.border"                 : color.bd,
 
-      "editor.foreground"                 : uno[0],
+      "editor.foreground"                 : tri[0],
       "editor.background"                 : color.bg,
-      "editorLineNumber.foreground"       : uno[4],
-      "editorLineNumber.activeForeground" : uno[1],
+      "editorLineNumber.foreground"       : tri[4],
+      "editorLineNumber.activeForeground" : tri[1],
       "editorIndentGuide.background":       color.bg1u,
       "editorIndentGuide.activeBackground": color.bg2u,
 
@@ -133,19 +133,19 @@ function buildTheme({ ...args }) {
       {
         scope: "comment",
         settings: {
-          foreground: uno[4],
+          foreground: tri[4],
         },
       },
       {
         scope: "variable",
         settings: {
-          foreground: tri[0],
+          foreground: uno[0],
         },
       },
       {
         scope: "keyword",
         settings: {
-          foreground: uno[2],
+          foreground: tri[2],
         },
       },
       {
