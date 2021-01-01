@@ -1,0 +1,80 @@
+{
+  "name": "TriTone DeepSea",
+  "type": "dark",
+  "colors": {
+    "foreground": "#dae0e7",
+    "descriptionForeground": "#bac5d2",
+    "textLink.foreground": "#6fdff6",
+    "titleBar.activeForeground": "#dae0e7",
+    "titleBar.activeBackground": "#111a22",
+    "titleBar.border": "#09141c",
+    "activityBar.foreground": "#dae0e7",
+    "activityBar.inactiveForeground": "#8b98a6",
+    "activityBar.background": "#1d262f",
+    "activityBar.border": "#09141c",
+    "activityBar.activeBorder": "#5dfec6",
+    "tab.activeForeground": "#fcfcfd",
+    "tab.inactiveForeground": "#8b98a6",
+    "tab.inactiveBackground": "#111a22",
+    "tab.activeBackground": "#1d262f",
+    "tab.border": "#09141c",
+    "tab.activeBorderTop": "#5dfec6",
+    "editorGroupHeader.tabsBackground": "#111a22",
+    "tree.indentGuidesStroke": "#1d262f",
+    "list.inactiveSelectionBackground": "#1d262f",
+    "list.activeSelectionBackground": "#232c36",
+    "list.hoverBackground": "#1d262f",
+    "sideBar.foreground": "#8b98a6",
+    "sideBar.background": "#111a22",
+    "sideBar.border": "#09141c",
+    "sideBarSectionHeader.foreground": "#bac5d2",
+    "sideBarSectionHeader.background": "#111a22",
+    "sideBarSectionHeader.border": "#09141c",
+    "statusBar.foreground": "#bac5d2",
+    "statusBar.background": "#1d262f",
+    "statusBar.border": "#09141c",
+    "editor.foreground": "#fcfcfd",
+    "editor.background": "#1d262f",
+    "editorLineNumber.foreground": "#526c85",
+    "editorLineNumber.activeForeground": "#c1d8f2",
+    "editorIndentGuide.background": "#232c36",
+    "editorIndentGuide.activeBackground": "#2a333c",
+    "panel.background": "#111a22",
+    "panel.border": "#09141c",
+    "dropdown.background": "#232c36",
+    "dropdown.border": "#2a333c",
+    "dropdown.foreground": "#dae0e7",
+    "dropdown.listBackground": "#172029",
+    "input.background": "#172029",
+    "input.border": "#232c36",
+    "input.foreground": "#dae0e7",
+    "input.placeholderForeground": "#8b98a6"
+  },
+  "semanticHighlighting": true,
+  "tokenColors": [
+    {
+      "scope": "comment",
+      "settings": {
+        "foreground": "#526c85"
+      }
+    },
+    {
+      "scope": "variable",
+      "settings": {
+        "foreground": "#5dfec6"
+      }
+    },
+    {
+      "scope": "keyword",
+      "settings": {
+        "foreground": "#88b4e0"
+      }
+    },
+    {
+      "scope": "string",
+      "settings": {
+        "foreground": "#6fdff6"
+      }
+    }
+  ]
+}

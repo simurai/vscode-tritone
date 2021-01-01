@@ -33,9 +33,19 @@
 	"contributes": {
 		"themes": [
 			{
+				"label": "TriTone DeepSea",
+				"uiTheme": "vs-dark",
+				"path": "./themes/deepsea.json"
+			},
+			{
 				"label": "TriTone Dark",
 				"uiTheme": "vs-dark",
 				"path": "./themes/dark.json"
+			},
+			{
+				"label": "TriTone Light",
+				"uiTheme": "vs",
+				"path": "./themes/light.json"
 			}
 		]
 	},

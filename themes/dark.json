@@ -1,9 +1,10 @@
 {
   "name": "TriTone Dark",
+  "type": "dark",
   "colors": {
     "foreground": "#e0dfe7",
     "descriptionForeground": "#c4c2d2",
-    "textLink.foreground": "#6fdff6",
+    "textLink.foreground": "#f8dd59",
     "titleBar.activeForeground": "#e0dfe7",
     "titleBar.activeBackground": "#1f1e2a",
     "titleBar.border": "#191824",
@@ -11,13 +12,13 @@
     "activityBar.inactiveForeground": "#9997a8",
     "activityBar.background": "#2c2a37",
     "activityBar.border": "#191824",
-    "activityBar.activeBorder": "#5dfec6",
+    "activityBar.activeBorder": "#f39e4f",
     "tab.activeForeground": "#fcfcfd",
     "tab.inactiveForeground": "#9997a8",
     "tab.inactiveBackground": "#1f1e2a",
     "tab.activeBackground": "#2c2a37",
     "tab.border": "#191824",
-    "tab.activeBorderTop": "#5dfec6",
+    "tab.activeBorderTop": "#f39e4f",
     "editorGroupHeader.tabsBackground": "#1f1e2a",
     "tree.indentGuidesStroke": "#2c2a37",
     "list.inactiveSelectionBackground": "#2c2a37",
@@ -60,7 +61,7 @@
     {
       "scope": "variable",
       "settings": {
-        "foreground": "#5dfec6"
+        "foreground": "#f39e4f"
       }
     },
     {
@@ -72,7 +73,7 @@
     {
       "scope": "string",
       "settings": {
-        "foreground": "#6fdff6"
+        "foreground": "#f8dd59"
       }
     }
   ]
