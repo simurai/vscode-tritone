@@ -73,6 +73,11 @@ function buildTheme({ ...args }) {
       "activityBar.border": color.bd,
       "activityBar.foreground": color.fg,
       "activityBar.inactiveForeground": color.fg2d,
+      "activityBarBadge.foreground": color.bg,
+      "activityBarBadge.background": uno[0],
+
+      "badge.foreground": color.bg,
+      "badge.background": uno[0],
 
       "button.background": duo[2],
       "button.foreground": color.fg1u,
@@ -107,11 +112,18 @@ function buildTheme({ ...args }) {
       "input.placeholderForeground": color.fg2d,
 
       "list.activeSelectionBackground": color.bg1u,
+      "list.activeSelectionForeground": color.fg1u,
+      "list.focusBackground": chroma.mix(color.bg2d, duo[1], 0.075).hex(),
       "list.hoverBackground": color.bg,
+      "list.hoverForeground": color.fg2d,
+      "list.inactiveFocusBackground": chroma.mix(color.bg2d, duo[1], 0.05).hex(),
       "list.inactiveSelectionBackground": color.bg,
+      "list.inactiveSelectionForeground": color.fg,
 
       "panel.background": color.bg2d,
       "panel.border": color.bd,
+
+      "progressBar.background": uno[0],
 
       "sideBar.background": color.bg2d,
       "sideBar.border": color.bd,
@@ -119,6 +131,7 @@ function buildTheme({ ...args }) {
       "sideBarSectionHeader.background": color.bg2d,
       "sideBarSectionHeader.border": color.bd,
       "sideBarSectionHeader.foreground": color.fg1d,
+      "sideBarTitle.foreground": color.fg2d,
 
       "statusBar.background": color.bg,
       "statusBar.border": color.bd,
@@ -143,8 +156,9 @@ function buildTheme({ ...args }) {
       "titleBar.activeForeground": color.fg,
       "titleBar.border": color.bd,
       "titleBar.inactiveBackground": color.bg,
+      "titleBar.inactiveForeground": color.fg2d,
 
-      "tree.indentGuidesStroke": color.bg,
+      "tree.indentGuidesStroke": chroma(color.fg).alpha(0.075).hex(),
     },
     semanticHighlighting: true,
     tokenColors: [
