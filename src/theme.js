@@ -60,7 +60,11 @@ function buildTheme({ ...args }) {
     'bg1d' : bg[4], // 1 down
     'bg2d' : bg[5], // 2 down
 
-    'bd'   : bg[bdScale], // border (6 or 0)
+    'bd'   : bg[bdScale], // border (6 or 0),
+
+    'green' : chroma('hsl(150, 100%, 40%)').hex(), // addition/success
+    'red'   : chroma('hsl(355, 100%, 70%)').hex(), // deletion/danger
+    'orange': chroma('hsl(40, 100%, 45%)').hex(), // warning
   }
 
   // Output -------------------------------------------------------------
@@ -95,8 +99,8 @@ function buildTheme({ ...args }) {
 
       "descriptionForeground": color.fg1d,
 
-      "diffEditor.insertedTextBackground": chroma(uno[0]).alpha(0.2).hex(),
-      "diffEditor.removedTextBackground": chroma(duo[0]).alpha(0.2).hex(),
+      "diffEditor.insertedTextBackground": chroma.mix(tri[3], color.green, 0.66).alpha(0.1).hex(),
+      "diffEditor.removedTextBackground": chroma.mix(tri[3], color.red, 0.66).alpha(0.1).hex(),
 
       "dropdown.background": color.bg1u,
       "dropdown.border": color.bg2u,
@@ -132,19 +136,19 @@ function buildTheme({ ...args }) {
       "editorBracketMatch.background"       : chroma(duo[0]).alpha(0.3).hex(),
       "editorBracketMatch.border"           : chroma(duo[0]).alpha(0).hex(),
 
-      "editorGutter.modifiedBackground": tri[2],
-      "editorGutter.addedBackground": uno[0],
-      "editorGutter.deletedBackground": duo[0],
+      "editorGutter.modifiedBackground": tri[3],
+      "editorGutter.addedBackground": chroma.mix(tri[3], color.green, 0.5).hex(),
+      "editorGutter.deletedBackground": chroma.mix(tri[3], color.red, 0.5).hex(),
 
       "focusBorder": duo[0],
       "foreground": color.fg,
 
-      "gitDecoration.addedResourceForeground": uno[0],
+      "gitDecoration.untrackedResourceForeground": chroma.mix(tri[2], color.green, 0.5).hex(),
+      "gitDecoration.addedResourceForeground": chroma.mix(tri[2], color.green, 0.5).hex(),
+      "gitDecoration.deletedResourceForeground": chroma.mix(tri[2], color.red, 0.5).hex(),
+      "gitDecoration.conflictingResourceForeground": chroma.mix(tri[2], color.red, 0.5).hex(),
       "gitDecoration.modifiedResourceForeground": tri[2],
-      "gitDecoration.deletedResourceForeground": duo[0],
-      "gitDecoration.untrackedResourceForeground": uno[0],
       "gitDecoration.ignoredResourceForeground": color.fg3d,
-      "gitDecoration.conflictingResourceForeground": duo[1],
       "gitDecoration.submoduleResourceForeground": color.fg3d,
 
       "input.background": color.bg1d,
@@ -160,6 +164,9 @@ function buildTheme({ ...args }) {
       "list.inactiveFocusBackground": chroma.mix(color.bg2d, duo[1], 0.05).hex(),
       "list.inactiveSelectionBackground": color.bg,
       "list.inactiveSelectionForeground": color.fg,
+
+      "list.errorForeground": chroma.mix(tri[2], color.red, 0.66).hex(),
+      "list.warningForeground": chroma.mix(tri[2], color.orange, 0.66).hex(),
 
       "notificationCenterHeader.foreground": color.fg1d,
       "notificationCenterHeader.background": color.bg,

@@ -1,17 +1,6 @@
 const fs = require("fs").promises;
 const buildTheme = require("./theme");
 
-// Example
-// const darkTheme = buildTheme({
-//   name         : 'TriTone Dark',
-//   accent1Color : 'hsl(190, 88%, 70%)',
-//   accent2Color : 'hsl(159, 99%, 68%)',
-//   bgColor      : 'hsl(249, 13%, 19%)',
-//   fgSaturate   : 0.5,
-//   fgContrast   : 0.5,
-//   bgContrast   : 0.5,
-// });
-
 const deepsea = buildTheme({
   name         : 'TriTone DeepSea',
   accent1Color : 'hsl(159, 99%, 68%)',
@@ -24,6 +13,9 @@ const dark = buildTheme({
   accent1Color : 'hsl(29, 87%, 63%)',
   accent2Color : 'hsl(50, 92%, 66%)',
   bgColor      : 'hsl(249, 13%, 19%)',
+  fgSaturate   : 0.7,
+  fgContrast   : 0.6,
+  bgContrast   : 0.2,
 });
 
 const light = buildTheme({
