@@ -55,7 +55,7 @@
 			{
 				"label": "TriTone DarkSky",
 				"uiTheme": "vs-dark",
-				"path": "./themes/dark.json"
+				"path": "./themes/dark-sky.json"
 			},
 			{
 				"label": "TriTone Light",
