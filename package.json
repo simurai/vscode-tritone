@@ -33,12 +33,27 @@
 	"contributes": {
 		"themes": [
 			{
-				"label": "TriTone DeepSea",
+				"label": "TriTone DarkForest",
 				"uiTheme": "vs-dark",
-				"path": "./themes/deepsea.json"
+				"path": "./themes/dark-forest.json"
 			},
 			{
-				"label": "TriTone Dark",
+				"label": "TriTone DarkEarth",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dark-earth.json"
+			},
+			{
+				"label": "TriTone DarkSpace",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dark-space.json"
+			},
+			{
+				"label": "TriTone DarkSea",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dark-sea.json"
+			},
+			{
+				"label": "TriTone DarkSky",
 				"uiTheme": "vs-dark",
 				"path": "./themes/dark.json"
 			},

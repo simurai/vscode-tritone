@@ -160,13 +160,19 @@
   "semanticHighlighting": true,
   "tokenColors": [
     {
-      "scope": "variable",
+      "scope": "string",
       "settings": {
         "foreground": "#fed6ae"
       }
     },
     {
-      "scope": "string",
+      "scope": "constant",
+      "settings": {
+        "foreground": "#c5a78f"
+      }
+    },
+    {
+      "scope": "variable",
       "settings": {
         "foreground": "#f8f859"
       }

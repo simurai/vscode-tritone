@@ -262,11 +262,15 @@ function buildTheme({ ...args }) {
     semanticHighlighting: true,
     tokenColors: [
       {
-        scope: "variable",
+        scope: "string",
         settings: { foreground: uno[0] }
       },
       {
-        scope: "string",
+        scope: "constant",
+        settings: { foreground: uno[1] }
+      },
+      {
+        scope: "variable",
         settings: { foreground: duo[0] }
       },
       {
