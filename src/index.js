@@ -1,6 +1,28 @@
 const fs = require("fs").promises;
 const buildTheme = require("./theme");
 
+// Solarized Light
+// const DarkDimmed = buildTheme({
+//   name         : 'TriTone DarkDimmed',
+//   accent1Color : 'hsl(12, 81%, 41%)',
+//   accent2Color : 'hsl(173, 58%, 36%)',
+//   bgColor      : 'hsl(45, 89%, 93%)',
+//   fgSaturate   : 0.4,
+//   fgContrast   : 0.44,
+//   bgContrast   : 0.3,
+// });
+
+// Solarized Dark
+// const DarkDimmed = buildTheme({
+//   name         : 'TriTone DarkDimmed',
+//   accent1Color : 'hsl(40, 74%, 67%)',
+//   accent2Color : 'hsl(331, 75%, 85%)',
+//   bgColor      : 'hsl(193, 89%, 11%)',
+//   fgSaturate   : 0.7,
+//   fgContrast   : 0.4,
+//   bgContrast   : 0.3,
+// });
+
 const DarkDimmed = buildTheme({
   name         : 'TriTone DarkDimmed',
   accent1Color : 'hsl(5, 100%, 80%)',
