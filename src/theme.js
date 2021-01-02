@@ -156,15 +156,14 @@ function buildTheme({ ...args }) {
       "input.foreground": color.fg,
       "input.placeholderForeground": color.fg2d,
 
-      "list.activeSelectionBackground": color.bg1u,
       "list.activeSelectionForeground": color.fg1u,
-      "list.focusBackground": chroma.mix(color.bg2d, duo[1], 0.075).hex(),
-      "list.hoverBackground": color.bg,
-      "list.hoverForeground": color.fg2d,
-      "list.inactiveFocusBackground": chroma.mix(color.bg2d, duo[1], 0.05).hex(),
-      "list.inactiveSelectionBackground": color.bg,
       "list.inactiveSelectionForeground": color.fg,
 
+      "list.hoverBackground": chroma(color.fg).alpha(0.05).hex(),
+      "list.activeSelectionBackground": chroma(color.fg).alpha(0.12).hex(),
+      "list.inactiveSelectionBackground": chroma(color.fg).alpha(0.1).hex(),
+      "list.focusBackground": chroma(color.fg).alpha(0.12).hex(),
+      "list.inactiveFocusBackground": chroma(color.fg).alpha(0.075).hex(),
       "list.errorForeground": chroma.mix(tri[2], color.red, 0.66).hex(),
       "list.warningForeground": chroma.mix(tri[2], color.orange, 0.66).hex(),
 
