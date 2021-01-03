@@ -20,30 +20,26 @@ function buildTheme({ ...args }) {
     var bdScale = 6;
     var fgContrastL = 0.5 - fgContrast; // Adjust range of the scale
     var fgContrastR = 0.15; // Adjust range of the scale
-    var bgUColor = chroma(bgColor).darken(bgContrast); // darken both directions
-    var bgDColor = chroma(bgColor).darken(bgContrast);
+    var bgUColor = chroma(bgColor).darken(bgContrast); // Upper bg color, also darken in light mode
+    var bgDColor = chroma(bgColor).darken(bgContrast); // Lower bg color
 
   } else if (mode == 'dark') {
     var fgUColor = 'white';
-    var bdScale = bgContrast < 0.4 || bgContrast + fgContrast > 1.2 ? 0 : 6;
+    var bdScale = bgContrast < 0.4 || bgContrast + fgContrast > 1.2 ? 0 : 6; // Invert border
     var fgContrastL = 0.5 - fgContrast; // Adjust range of the scale
     var fgContrastR = 0.33; // Adjust range of the scale
-    var bgUColor = chroma(bgColor).brighten(bgContrast);
-    var bgDColor = chroma(bgColor).darken(bgContrast);
+    var bgUColor = chroma(bgColor).brighten(bgContrast); // Upper bg color
+    var bgDColor = chroma(bgColor).darken(bgContrast); // Lower bg color
   }
 
   // UI
-  const fg = chroma.scale([ fgUColor, fgColor, bgColor ]).padding([fgContrastL + 0.02, fgContrastR + 0.05]).mode(colorMode).colors(5); // padding cuts off the edges
+  const fg = chroma.scale([ fgUColor, fgColor, bgColor ]).padding([fgContrastL + 0.02, fgContrastR + 0.05]).mode(colorMode).colors(5);
   const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
   // Syntax
-  const unoColor  = accent1Color; // Accent 1
-  const duoColor  = accent2Color; // Accent 2
-  const triColor  = fgColor; // Main
-
-  const uno = chroma.scale([ fgUColor, unoColor, bgColor ]).padding([fgContrastL + 0.15, fgContrastR]).mode(colorMode).colors(4);
-  const duo = chroma.scale([ fgUColor, duoColor, bgColor ]).padding([fgContrastL + 0.15, fgContrastR]).mode(colorMode).colors(4);
-  const tri = chroma.scale([ fgUColor, triColor, bgColor ]).padding([fgContrastL       , fgContrastR]).mode(colorMode).colors(5);
+  const uno = chroma.scale([ fgUColor, accent1Color, bgColor ]).padding([fgContrastL + 0.15, fgContrastR]).mode(colorMode).colors(4);
+  const duo = chroma.scale([ fgUColor, accent2Color, bgColor ]).padding([fgContrastL + 0.15, fgContrastR]).mode(colorMode).colors(4);
+  const tri = chroma.scale([ fgUColor, fgColor, bgColor ]).padding([fgContrastL       , fgContrastR]).mode(colorMode).colors(5);
 
   // UI Scale
   const color = {
@@ -60,7 +56,10 @@ function buildTheme({ ...args }) {
     'bg1d' : bg[4], // 1 down
     'bg2d' : bg[5], // 2 down
 
-    'bd'   : bg[bdScale], // border (6 or 0),
+    'bd'   : bg[bdScale], // border (6 or 0)
+
+    'accent1': uno[2],
+    'accent2': duo[2],
 
     'green' : chroma('hsl(150, 100%, 40%)').hex(), // addition/success
     'red'   : chroma('hsl(355, 100%, 70%)').hex(), // deletion/danger
@@ -73,20 +72,20 @@ function buildTheme({ ...args }) {
     name: args.name,
     type: mode,
     colors: {
-      "activityBar.activeBorder": uno[2],
+      "activityBar.activeBorder": color.accent1,
       "activityBar.background": color.bg,
       "activityBar.border": color.bd,
       "activityBar.foreground": color.fg,
       "activityBar.inactiveForeground": color.fg2d,
       "activityBarBadge.foreground": color.bg,
-      "activityBarBadge.background": uno[2],
+      "activityBarBadge.background": color.accent1,
 
       "badge.foreground": color.bg,
-      "badge.background": uno[2],
+      "badge.background": color.accent1,
 
-      "button.background": duo[2],
       "button.foreground": color.fg1u,
-      "button.hoverBackground": chroma(duo[2]).brighten(0.1).hex(),
+      "button.background": color.accent2,
+      "button.hoverBackground": chroma(color.accent2).brighten(0.1).hex(),
 
       "breadcrumb.foreground": color.fg2d,
       "breadcrumb.focusForeground": color.fg1d,
@@ -140,7 +139,7 @@ function buildTheme({ ...args }) {
       "editorGutter.addedBackground": chroma.mix(tri[3], color.green, 0.5).hex(),
       "editorGutter.deletedBackground": chroma.mix(tri[3], color.red, 0.5).hex(),
 
-      "focusBorder": duo[2],
+      "focusBorder": color.accent2,
       "foreground": color.fg,
 
       "gitDecoration.untrackedResourceForeground": chroma.mix(tri[2], color.green, 0.5).hex(),
@@ -172,19 +171,19 @@ function buildTheme({ ...args }) {
       "notifications.foreground": color.fg,
       "notifications.background": color.bg1u,
       "notifications.border": color.bd,
-      "notificationsErrorIcon.foreground": uno[2],
-      "notificationsWarningIcon.foreground": duo[2],
-      "notificationsInfoIcon.foreground": tri[2],
+      "notificationsErrorIcon.foreground": chroma.mix(color.fg, color.red, 0.66).hex(),
+      "notificationsWarningIcon.foreground": chroma.mix(color.fg, color.orange, 0.66).hex(),
+      "notificationsInfoIcon.foreground": color.accent2,
 
       "panel.background": color.bg2d,
       "panel.border": color.bd,
-      "panelTitle.activeBorder": uno[2],
+      "panelTitle.activeBorder": color.accent1,
       "panelTitle.activeForeground": color.fg1d,
       "panelTitle.inactiveForeground": color.fg2d,
       "panelInput.border": color.bd,
 
-      "peekViewEditor.matchHighlightBackground": chroma(uno[2]).alpha(0.3).hex(),
-      "peekViewResult.matchHighlightBackground": chroma(uno[2]).alpha(0.3).hex(),
+      "peekViewEditor.matchHighlightBackground": chroma(color.accent1).alpha(0.3).hex(),
+      "peekViewResult.matchHighlightBackground": chroma(color.accent1).alpha(0.3).hex(),
       "peekViewEditor.background": color.bg1d,
       "peekViewResult.background": color.bg1d,
       "peekView.border": color.bg3u,
@@ -195,7 +194,7 @@ function buildTheme({ ...args }) {
       "pickerGroup.border": color.bd,
       "pickerGroup.foreground": color.fg,
 
-      "progressBar.background": uno[2],
+      "progressBar.background": color.accent1,
 
       "quickInput.background": color.bg1u,
       "quickInput.foreground": color.fg,
@@ -228,7 +227,7 @@ function buildTheme({ ...args }) {
       "statusBarItem.prominentBackground": color.bg1u,
 
       "tab.activeBackground": color.bg,
-      "tab.activeBorderTop": uno[2],
+      "tab.activeBorderTop": color.accent1,
       "tab.activeForeground": color.fg1u,
       "tab.border": color.bd,
       "tab.inactiveBackground": color.bg2d,
