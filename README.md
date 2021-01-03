@@ -1,7 +1,5 @@
 # VS Code theme TriTone
 
-![TriTone theme](https://user-images.githubusercontent.com/378023/80668639-595e9e00-8add-11ea-8673-4a481cc7e2dd.png)
-
 ## Install
 
 1. Go to [VS Marketplace](https://marketplace.visualstudio.com/)
