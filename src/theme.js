@@ -6,9 +6,9 @@ function buildTheme({ ...args }) {
 
   // Config
   const accent1Color = args.accent1Color || 'hsl(120, 88%, 84%)'; // Accent 1
-  const accent2Color = args.accent2Color || 'hsl(320, 88%, 80%)'; // Accent 2
-  const bgColor      = args.bgColor      || 'hsl(200, 3%, 16%)'; // Background
-  const fgSaturate   = args.fgSaturate   || 0.5;
+  const accent2Color = args.accent2Color || 'hsl(300, 88%, 80%)'; // Accent 2
+  const fgColor      = args.fgColor      || 'hsl(220,  6%, 46%)'; // Foreground
+  const bgColor      = args.bgColor      || 'hsl(220, 20%, 20%)'; // Background
   const fgContrast   = args.fgContrast   || 0.5;
   const bgContrast   = args.bgContrast   || 0.5;
 
@@ -16,34 +16,32 @@ function buildTheme({ ...args }) {
   const mode = chroma(bgColor).luminance() > 0.5 ? 'light' : 'dark';
 
   if (mode == 'light') {
-    var modeColor = 'black';
+    var fgUColor = 'black';
     var bdScale = 6;
-    var fgContrastPadding = 0.5 - fgContrast; // Adjust range of the scale
-    var fgColor = chroma.mix(bgColor, modeColor, 0.25 + fgContrast).saturate(fgSaturate); // Based on background
+    var fgContrastPadding = 1 - fgContrast; // Adjust range of the scale
     var bgUColor = chroma(bgColor).darken(bgContrast); // darken both directions
     var bgDColor = chroma(bgColor).darken(bgContrast);
 
   } else if (mode == 'dark') {
-    var modeColor = 'white';
-    var bdScale = bgContrast < 0.4 ? 0 : 6;
+    var fgUColor = 'white';
+    var bdScale = bgContrast < 0.4 || bgContrast + fgContrast > 1.2 ? 0 : 6;
     var fgContrastPadding = 0.5 - fgContrast; // Adjust range of the scale
-    var fgColor = chroma.mix(bgColor, modeColor, fgContrast).saturate(fgSaturate); // Based on background
     var bgUColor = chroma(bgColor).brighten(bgContrast);
     var bgDColor = chroma(bgColor).darken(bgContrast);
   }
 
   // UI
-  const fg = chroma.scale([ modeColor, fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(5); // padding cuts off the edges
+  const fg = chroma.scale([ fgUColor, fgColor, bgColor ]).padding([0.02 + fgContrastPadding, 0.4]).mode(colorMode).colors(5); // padding cuts off the edges
   const bg = chroma.scale([ bgUColor, bgColor, bgDColor ]).mode(colorMode).colors(7);
 
   // Syntax
   const unoColor  = accent1Color; // Accent 1
   const duoColor  = accent2Color; // Accent 2
-  const triColor  = fgColor.saturate(fgSaturate * 2); // Main
+  const triColor  = fgColor; // Main
 
-  const uno = chroma.scale([ unoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
-  const duo = chroma.scale([ duoColor, bgColor ]).padding([fgContrastPadding, 0.4]).mode(colorMode).colors(3);
-  const tri = chroma.scale([ fg[0], triColor, bgColor ]).correctLightness().padding([fgContrastPadding, 0.25]).mode(colorMode).colors(5);
+  const uno = chroma.scale([ fgUColor, unoColor, bgColor ]).padding([0.15 + fgContrastPadding, 0.33]).mode(colorMode).colors(4);
+  const duo = chroma.scale([ fgUColor, duoColor, bgColor ]).padding([0.15 + fgContrastPadding, 0.33]).mode(colorMode).colors(4);
+  const tri = chroma.scale([ fgUColor, triColor, bgColor ]).padding([       fgContrastPadding, 0.33]).mode(colorMode).colors(5);
 
   // UI Scale
   const color = {
@@ -263,23 +261,27 @@ function buildTheme({ ...args }) {
     tokenColors: [
       {
         scope: "string",
-        settings: { foreground: uno[0] }
-      },
-      {
-        scope: "constant",
         settings: { foreground: uno[1] }
       },
       {
+        scope: "constant",
+        settings: { foreground: uno[2] }
+      },
+      {
         scope: "variable",
-        settings: { foreground: duo[0] }
+        settings: { foreground: duo[1] }
       },
       {
         scope: "keyword",
         settings: { foreground: tri[2] }
       },
       {
+        scope: "keyword.other",
+        settings: { foreground: tri[1] }
+      },
+      {
         scope: "comment",
-        settings: { foreground: tri[4] }
+        settings: { foreground: tri[3] }
       },
     ],
   };

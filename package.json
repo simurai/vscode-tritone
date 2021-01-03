@@ -33,6 +33,11 @@
 	"contributes": {
 		"themes": [
 			{
+				"label": "TriTone A Test",
+				"uiTheme": "vs-dark",
+				"path": "./themes/test.json"
+			},
+			{
 				"label": "TriTone DarkForest",
 				"uiTheme": "vs-dark",
 				"path": "./themes/dark-forest.json"
