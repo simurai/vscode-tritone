@@ -5,10 +5,10 @@ const Test = buildTheme({
   name         : 'TriTone Test',
   accent1Color : 'hsl(240, 99%, 30%)',
   accent2Color : 'hsl(150, 99%, 40%)',
-  fgColor      : 'hsl(200, 20%, 33%)',
-  bgColor      : 'hsl(200, 100%, 100%)',
+  fgColor      : 'hsl(200, 30%, 40%)',
+  bgColor      : 'hsl(200, 100%, 99%)',
   fgContrast   : 0.5,
-  bgContrast   : 0.4,
+  bgContrast   : 0.33,
 });
 
 const DarkForest = buildTheme({
