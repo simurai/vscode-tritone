@@ -63,9 +63,9 @@
 				"path": "./themes/dark-sky.json"
 			},
 			{
-				"label": "TriTone Light",
+				"label": "TriTone LightSnow",
 				"uiTheme": "vs",
-				"path": "./themes/light.json"
+				"path": "./themes/light-snow.json"
 			},
 			{
 				"label": "TriTone LightMoss",
