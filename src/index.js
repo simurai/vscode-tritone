@@ -1,15 +1,19 @@
 const fs = require("fs").promises;
 const buildTheme = require("./theme");
 
+// Test
+
 const Test = buildTheme({
-  name         : 'TriTone Test',
-  accent1Color : 'hsl(240, 99%, 30%)',
-  accent2Color : 'hsl(150, 99%, 40%)',
-  fgColor      : 'hsl(200, 30%, 40%)',
-  bgColor      : 'hsl(200, 100%, 99%)',
-  fgContrast   : 0.5,
-  bgContrast   : 0.33,
+  name: "TriTone Test",
+  accent1Color: "hsl(100, 99%, 28%)",
+  accent2Color: "hsl(200, 99%, 32%)",
+  fgColor: "hsl(180, 30%, 42%)",
+  bgColor: "hsl(160, 100%, 99%)",
+  fgContrast: 0.6,
+  bgContrast: 0.36,
 });
+
+// Dark
 
 const DarkForest = buildTheme({
   name         : 'TriTone DarkForest',
@@ -57,6 +61,8 @@ const DarkSky = buildTheme({
   bgContrast   : 0.4,
 });
 
+// Light
+
 const Light = buildTheme({
   name         : 'TriTone Light',
   accent1Color : 'hsl(240, 99%, 30%)',
@@ -67,14 +73,39 @@ const Light = buildTheme({
   bgContrast   : 0.33,
 });
 
+const LightMoss = buildTheme({
+  name: "TriTone LightMoss",
+  accent1Color: "hsl(100, 99%, 28%)",
+  accent2Color: "hsl(200, 99%, 32%)",
+  fgColor: "hsl(180, 30%, 42%)",
+  bgColor: "hsl(160, 100%, 99%)",
+  fgContrast: 0.6,
+  bgContrast: 0.36,
+});
+
 fs.mkdir("./themes", { recursive: true })
-  .then(() => Promise.all([
-    fs.writeFile("./themes/test.json", JSON.stringify(Test, null, 2)),
-    fs.writeFile("./themes/dark-forest.json", JSON.stringify(DarkForest, null, 2)),
-    fs.writeFile("./themes/dark-earth.json", JSON.stringify(DarkEarth, null, 2)),
-    fs.writeFile("./themes/dark-space.json", JSON.stringify(DarkSpace, null, 2)),
-    fs.writeFile("./themes/dark-sea.json", JSON.stringify(DarkSea, null, 2)),
-    fs.writeFile("./themes/dark-sky.json", JSON.stringify(DarkSky, null, 2)),
-    fs.writeFile("./themes/light.json", JSON.stringify(Light, null, 2)),
-  ]))
-  .catch(() => process.exit(1))
+  .then(() =>
+    Promise.all([
+      fs.writeFile("./themes/test.json", JSON.stringify(Test, null, 2)),
+      fs.writeFile(
+        "./themes/dark-forest.json",
+        JSON.stringify(DarkForest, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/dark-earth.json",
+        JSON.stringify(DarkEarth, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/dark-space.json",
+        JSON.stringify(DarkSpace, null, 2)
+      ),
+      fs.writeFile("./themes/dark-sea.json", JSON.stringify(DarkSea, null, 2)),
+      fs.writeFile("./themes/dark-sky.json", JSON.stringify(DarkSky, null, 2)),
+      fs.writeFile("./themes/light.json", JSON.stringify(Light, null, 2)),
+      fs.writeFile(
+        "./themes/light-moss.json",  
+        JSON.stringify(LightMoss, null, 2)
+      ),
+    ])
+  )
+  .catch(() => process.exit(1));
