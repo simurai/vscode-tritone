@@ -71,6 +71,11 @@
 				"label": "TriTone LightMoss",
 				"uiTheme": "vs",
 				"path": "./themes/light-moss.json"
+			},
+			{
+				"label": "TriTone LightSun",
+				"uiTheme": "vs",
+				"path": "./themes/light-sun.json"
 			}
 		]
 	},

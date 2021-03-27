@@ -5,12 +5,12 @@ const buildTheme = require("./theme");
 
 const Test = buildTheme({
   name: "TriTone Test",
-  accent1Color: "hsl(230, 99%, 40%)",
-  accent2Color: "hsl(200, 99%, 40%)",
-  fgColor: "hsl(220, 10%, 33%)",
-  bgColor: "hsl(220, 100%, 99%)",
-  fgContrast: 0.6,
-  bgContrast: 0.25,
+  accent1Color: "hsl(350, 99%, 50%)",
+  accent2Color: "hsl(190, 99%, 40%)",
+  fgColor: "hsl(240, 12%, 44%)",
+  bgColor: "hsl(40, 100%, 99%)",
+  fgContrast: 0.44,
+  bgContrast: 0.33,
 });
 
 // Dark
@@ -83,10 +83,21 @@ const LightMoss = buildTheme({
   bgContrast: 0.36,
 });
 
+const LightSun = buildTheme({
+  name: "TriTone LightSun",
+  accent1Color: "hsl(350, 99%, 50%)",
+  accent2Color: "hsl(190, 99%, 40%)",
+  fgColor: "hsl(240, 12%, 44%)",
+  bgColor: "hsl(40, 100%, 99%)",
+  fgContrast: 0.44,
+  bgContrast: 0.33,
+});
+
 fs.mkdir("./themes", { recursive: true })
   .then(() =>
     Promise.all([
       fs.writeFile("./themes/test.json", JSON.stringify(Test, null, 2)),
+      
       fs.writeFile(
         "./themes/dark-forest.json",
         JSON.stringify(DarkForest, null, 2)
@@ -99,8 +110,15 @@ fs.mkdir("./themes", { recursive: true })
         "./themes/dark-space.json",
         JSON.stringify(DarkSpace, null, 2)
       ),
-      fs.writeFile("./themes/dark-sea.json", JSON.stringify(DarkSea, null, 2)),
-      fs.writeFile("./themes/dark-sky.json", JSON.stringify(DarkSky, null, 2)),
+      fs.writeFile(
+        "./themes/dark-sea.json",
+        JSON.stringify(DarkSea, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/dark-sky.json",
+        JSON.stringify(DarkSky, null, 2)
+      ),
+      
       fs.writeFile(
         "./themes/light-snow.json",
         JSON.stringify(LightSnow, null, 2)
@@ -108,6 +126,10 @@ fs.mkdir("./themes", { recursive: true })
       fs.writeFile(
         "./themes/light-moss.json",
         JSON.stringify(LightMoss, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/light-sun.json",
+        JSON.stringify(LightSun, null, 2)
       ),
     ])
   )
