@@ -15,17 +15,16 @@ function buildTheme({ ...args }) {
   // Theme type
   const mode = chroma(bgColor).luminance() > 0.5 ? 'light' : 'dark';
 
-  if (mode == 'light') {
-    var fgUColor = 'black';
+  if (mode == "light") {
+    var fgUColor = "black";
     var bdScale = 6;
     var fgContrastL = 0.5 - fgContrast; // Adjust range of the scale
     var fgContrastR = 0.15; // Adjust range of the scale
     var bgUColor = chroma(bgColor).darken(bgContrast); // Upper bg color, also darken in light mode
     var bgDColor = chroma(bgColor).darken(bgContrast); // Lower bg color
-
-  } else if (mode == 'dark') {
-    var fgUColor = 'white';
-    var bdScale = bgContrast < 0.4 || bgContrast + fgContrast > 1.2 ? 0 : 6; // Invert border
+  } else if (mode == "dark") {
+    var fgUColor = "white";
+    var bdScale = bgContrast < 0.3 || bgContrast + fgContrast > 1.2 ? 0 : 6; // Invert border
     var fgContrastL = 0.5 - fgContrast; // Adjust range of the scale
     var fgContrastR = 0.33; // Adjust range of the scale
     var bgUColor = chroma(bgColor).brighten(bgContrast); // Upper bg color

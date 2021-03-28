@@ -5,60 +5,64 @@ const buildTheme = require("./theme");
 
 const Test = buildTheme({
   name: "TriTone Test",
-  accent1Color: "hsl(350, 99%, 50%)",
-  accent2Color: "hsl(190, 99%, 40%)",
-  fgColor: "hsl(240, 12%, 44%)",
-  bgColor: "hsl(40, 100%, 99%)",
-  fgContrast: 0.44,
-  bgContrast: 0.33,
+  accent1Color: "hsl(210, 99%, 70%)",
+  accent2Color: "hsl(340, 70%, 55%)",
+  fgColor: "hsl(290, 16%, 40%)",
+  bgColor: "hsl(260, 16%, 15%)",
+  fgContrast: 0.55,
+  bgContrast: 0.3,
 });
 
 // Dark
 
 const DarkForest = buildTheme({
-  name         : 'TriTone DarkForest',
-  accent1Color : 'hsl(70, 88%, 77%)',
-  accent2Color : 'hsl(178, 99%, 60%)',
-  fgColor      : 'hsl(120, 9%, 50%)',
-  bgColor      : 'hsl(120, 3%, 17%)',
+  name: "TriTone DarkForest",
+  accent1Color: "hsl(120, 99%, 82%)",
+  accent2Color: "hsl(40, 88%, 40%)",
+  fgColor: "hsl(80, 9%, 38%)",
+  bgColor: "hsl(160, 12%, 16%)",
+  fgContrast: 0.4,
+  bgContrast: 0.3,
 });
 
 const DarkEarth = buildTheme({
-  name         : 'TriTone DarkEarth',
-  accent1Color : 'hsl(41, 98%, 68%)',
-  accent2Color : 'hsl(70, 88%, 70%)',
-  fgColor      : 'hsl(12, 20%, 55%)',
-  bgColor      : 'hsl(27, 10%, 18%)',
+  name: "TriTone DarkEarth",
+  accent1Color: "hsl(36, 99%, 68%)",
+  accent2Color: "hsl(16, 66%, 50%)",
+  fgColor: "hsl(270, 8%, 38%)",
+  bgColor: "hsl(27, 0%, 16%)",
+  fgContrast: 0.5,
+  bgContrast: 0.2,
 });
 
 const DarkSpace = buildTheme({
-  name         : 'TriTone DarkSpace',
-  accent1Color : 'hsl(19, 96%, 67%)',
-  accent2Color : 'hsl(330, 88%, 70%)',
-  fgColor      : 'hsl( 20, 22%, 50%)',
-  bgColor      : 'hsl(240, 12%, 16%)',
-  fgContrast   : 0.3,
-  bgContrast   : 0.6,
+  name: "TriTone DarkSpace",
+  accent1Color: "hsl(210, 99%, 70%)",
+  accent2Color: "hsl(340, 70%, 55%)",
+  fgColor: "hsl(290, 16%, 40%)",
+  bgColor: "hsl(260, 16%, 15%)",
+  fgContrast: 0.55,
+  bgContrast: 0.3,
 });
 
 const DarkSea = buildTheme({
-  name         : 'TriTone DarkSea',
-  accent1Color : 'hsl(160, 97%, 75%)',
-  accent2Color : 'hsl(185, 99%, 50%)',
-  fgColor      : 'hsl(190, 33%, 50%)',
-  bgColor      : 'hsl(210, 24%, 15%)',
-  fgContrast   : 0.4,
-  bgContrast   : 0.15,
+  name: "TriTone DarkSea",
+  accent1Color: "hsl(150, 97%, 75%)",
+  accent2Color: "hsl(190, 70%, 50%)",
+  fgColor: "hsl(180, 24%, 50%)",
+  bgColor: "hsl(210, 32%, 14%)",
+  fgContrast: 0.4,
+  bgContrast: 0.25,
 });
 
 const DarkSky = buildTheme({
-  name         : 'TriTone DarkSky',
-  accent1Color : 'hsl(60, 92%, 76%)',
-  accent2Color : 'hsl(10, 98%, 72%)',
-  fgColor      : 'hsl(270, 33%, 66%)',
-  bgColor      : 'hsl(249, 13%, 19%)',
-  fgContrast   : 0.5,
-  bgContrast   : 0.4,
+  name: "TriTone DarkSky",
+  accent1Color: "hsl(10, 99%, 78%)",
+  accent2Color: "hsl(200, 50%, 60%)",
+  fgColor: "hsl(330, 10%, 40%)",
+  bgColor: "hsl(225, 20%, 14%)",
+  fgContrast: 0.45,
+  bgContrast: 0.15,
 });
 
 // Light
